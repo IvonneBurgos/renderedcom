@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+    <id>renderedcom</id>
+    <name>Render Edcom</name>
+    <description>My first ownCloud app</description>
+    <licence>AGPL</licence>
+    <author>IvonneBurgos</author>
+    <version>0.0.1</version>
+    <namespace>RenderEdcom</namespace>
+    <category>other</category>
+    <dependencies>
+        <owncloud min-version="9.0" />
+    </dependencies>
+</info>
