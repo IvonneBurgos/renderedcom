@@ -31,13 +31,17 @@ $data = array(
     'itemID'      => '03e76d0a-8bab-11e0-8250-000c29b481aa');
 
 // Execute the python script with the JSON data
-$result = shell_exec('python /opt/cgru/afanasy/python/la.py ' . escapeshellarg(json_encode($data)));
+$trabajo = shell_exec('cd /opt/cgru; sh /opt/cgru/setup.sh; cd /opt/cgru/Request; python ./job.py');
+          
+var_dump($trabajo);
+
+$result = shell_exec('python /opt/cgru/Requests/test.py ' . escapeshellarg(json_encode($data)));
 
 // Decode the result
 $resultData = json_decode($result, true);
 
 // This will contain: array('status' => 'Yes!')
-var_dump($resultData);
+//var_dump($resultData);
 
     ?>
       </div>
