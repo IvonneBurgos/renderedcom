@@ -13,36 +13,20 @@
       <hr/>
       <div>
 
-      <FORM>
+    <form action="" method="post">
     <p>Nombre de Escena</p>
     <label id ="echo-contentt"> Hola</label> 
     <p>Ubicación</p>
     <input type="text" size="5" name="b" id ="echo-content"> 
  
-    <button id="echo">Enviar</button>
-    </FORM>
-        <?php
-// This is the data you want to pass to Python
-$data = array(
-    'escena'      => 'escena',
-    'ubicacion'   => 0,
-    'value'       => 1,
-    'description' => 'Boa',
-    'itemID'      => '03e76d0a-8bab-11e0-8250-000c29b481aa');
-
-// Execute the python script with the JSON data
-$trabajo = shell_exec('cd /opt/cgru; sh /opt/cgru/setup.sh; cd /opt/cgru/Request; python ./job.py');
+    <input type="submit" value="enviar" name="enviar" />
+    </form>
           
-var_dump($trabajo);
-
-$result = shell_exec('python /opt/cgru/Requests/test.py ' . escapeshellarg(json_encode($data)));
-
-// Decode the result
-$resultData = json_decode($result, true);
-
-// This will contain: array('status' => 'Yes!')
-//var_dump($resultData);
-
+    <?php
+     
+        $last= shell_exec('sh /opt/cgru/setup3.sh; python /opt/cgru/afanasy/python/job.py');
+        echo "Command returned $last" ;
+    
     ?>
       </div>
     </div>

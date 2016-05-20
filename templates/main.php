@@ -1,5 +1,5 @@
 <?php
-script('renderedcom', 'scriptprueba');
+script('renderedcom', 'script');
 style('renderedcom', 'style');
 ?>
 
