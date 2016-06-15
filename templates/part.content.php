@@ -26,13 +26,26 @@
          
           
         $username = OC_User::getUser(); 
-        $datadir=OC\Files\Filesystem::getLocalFolder('Nube Multimedia');
-        $var2=OC\Files\Storage\Local::mkdir('var/www/owncloud/Nube Multimedia/new');
-        /*$array = ["datadir" => Nube Multimedia\/];  
-        $var = new OC\Files\Storage\Local;
-        $var::__construct($array);*/
+        $array = ["datadir" => "Nube_Multimedia"];  
+        $datadir = new OC\Files\Storage\Local($array);
+        $datadir->mkdir($username);
+        $scene = 'Nueva Escena';
+        echo $datadir->getSourcePath();
         
-      
+        $varfolder= $username . '/' . $scene. '/';
+        $datadir->mkdir($varfolder);
+        
+        $data= array('usuario'=>$username,'escena'=> $scene,'frame_ini'=> 1,'frame_fin'=> 10);
+        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
+        echo $result;
+        // Decode the result
+        $resultData = json_decode($result, true);
+        // This will contain: array('status' => 'Yes!')
+        var_dump($resultData);
+    
+        
+        //$datadir=OC\Files\Filesystem::getLocalFolder('Nube Multimedia');
+        //$var2=OC\Files\Storage\Local::mkdir('var/www/owncloud/Nube Multimedia/new');
           
 
         //OC\Files\Storage\Local::$datadir;
