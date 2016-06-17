@@ -1,30 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-          rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h3 class="text-muted">Render EDCOM-ESPOL</h3>
-      </div>
-      <hr/>
-      <div>
+<p>Hello World <?php p($_['user']) ?></p>
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p>Nombre de Escena</p>
-    <input type="text" size="5" name="scene" id ="echo-content">  
-    <p>Archivo</p>
-    <input type="text" size="5" name="file" > 
-    <p>Frame Inicial</p>
-    <input type="text" size="5" name="frame_ini"  >
-    <p>Frame Final</p>
-    <input type="text" size="5" name="frame_fin"> 
-    <p><button id="echo">Send ajax request</button></p>
-    </form>
-   <div id="echo-result"> </div>
+<p><button id="hello">click me</button></p>
+
+<p><textarea id="echo-content">
+	Send this as ajax
+</textarea></p>
+<p><button id="echo">Send ajax request</button></p>
+
+Ajax response: <div id="echo-result"></div>
           
     <?php
         $username = OC_User::getUser(); 
@@ -130,8 +113,4 @@
           return $data;*/
         ?>
           
-       
-      </div>
-    </div>
-  </body>
-</html>
+    
