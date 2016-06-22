@@ -16,16 +16,17 @@
 		});
 
 		$('#echo').click(function () {
-			var url = OC.generateUrl('/apps/renderedcom/echo');
-            var tipo: "POST"
+			var url = OC.generateUrl('/apps/renderedcom/job');
 			var data = {
-				echo: $('#echo-content').val()
+				scene: $('#scene').val(),
+                frame_ini: $('#frame_ini').val(),
+                frame_fin:$('#frame_fin').val()
 			};
 
-			$.ajax(url, data).success(function (response) {
-				$('#echo-result').text(response.echo);
+			$.post(url, data).success(function (response) {
+				$('#echo-result').text(response.scene + ' ... ' + response.frame_ini + ' ... ' + response.frame_fin );
+                
 			});
-
 		});
 	});
 

@@ -1,27 +1,35 @@
-<p>Hello World <?php p($_['user']) ?></p>
-
-
-
-<p>Nombre de Escena <input id="echo-content"></p>
-<p>Frame Inicial <input id="frame_ini"></p> 
-<p>Frame Final <input id="frame_fin"></p> 
+<p>Hola <?php p($_['user']) ?></p>
+<p>Nombre de Escena <input id="scene" name="scene"></p>
+<p>Frame Inicial <input id="frame_ini" name="frame_ini"></p> 
+<p>Frame Final <input id="frame_fin" name="frame_fin"></p> 
 <p><button id="echo">Renderizar!</button></p>
 
-Ajax response: <div id="echo-result"></div>
+
+
+<!--Respuesta Ajax: <div id="echo-result"></div>-->
           
     <?php
-        $username = OC_User::getUser(); 
-        $array = ["datadir" => "Nube_Multimedia"];  
+        /*$username = OC_User::getUser(); 
+        $scene=$_POST['scene'];
+        $frame_ini=$_POST['frame_ini'];
+        $frame_fin=$_POST['frame_fin'];
+    
+        echo $scene;
+    
+       /* $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new OC\Files\Storage\Local($array);
         $datadir->mkdir($username);
         $scene= "scene";
         echo $datadir->getSourcePath();
         echo ' su estado es: '. $datadir->isUpdatable('admin');	
         $varfolder= $username . '/' . $scene. '/';
-        $datadir->mkdir($varfolder);
+        $datadir->mkdir($varfolder);*/
+    ?>
+    
+    <?php
         //chown($username, '/var/www/owncloud/Nube_Multimedia/admin');
         
-        $data= array('usuario'=>$username,'escena'=> $scene,'frame_ini'=> 1,'frame_fin'=> 10);
+       /* $data= array('usuario'=>$username,'escena'=> $scene,'frame_ini'=> 1,'frame_fin'=> 10);
         $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
         echo $result;
         // Decode the result

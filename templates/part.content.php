@@ -15,7 +15,7 @@
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Nombre de Escena</p>
-    <input type="text" size="5" name="scene" id ="echo-content">  
+    <input type="text" size="5" name="scene" id ="scene">  
     <p>Archivo</p>
     <input type="text" size="5" name="file" > 
     <p>Frame Inicial</p>
