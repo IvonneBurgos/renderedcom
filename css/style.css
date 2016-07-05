@@ -1,3 +1,12 @@
 #hello {
 	color: blue;
 }
+form {
+    padding-top: 10%;
+}
+form div {
+    padding-top: 2%;
+}
+.formElements{
+    width: 100% !important;
+}

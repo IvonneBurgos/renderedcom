@@ -1,8 +1,73 @@
-<p>Hola <?php p($_['user']) ?></p>
-<p>Nombre de Escena <input id="scene" name="scene"></p>
+
+<!--<p>Hola <?php //p($_['user']) ?></p>-->
+
+
+    
+<form>
+    <div class="row">
+        <div class="col-md-2">
+            <label class="formElements" >Nombre de Escena: </label>
+        </div>
+        <div class="col-md-10">
+            <input class="formElements" type="text" placeholder="mi_render">
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Archivo: </label>
+        </div>
+        <div class="col-md-10">
+             <input class="formElements" type="file" value="buscar">
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+                 <label>Frames desde: </label>
+        </div>
+        <div class="col-md-4">
+             <input class="formElements" type="text" placeholder="0">
+        </div>
+        <div class="col-md-2">
+                <label>hasta: </label>
+        </div>
+        <div class="col-md-4">
+             <input class="formElements" type="text" placeholder="99">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-default">Renderizar</button>
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-default">Cancelar</button>
+        </div>
+        
+    </div>
+</form>
+  <!--<div class="form-group form-inline">
+    <label for="exampleInputText1" class="col-xs-4 col-sm-2 col-md-2">Nombre de Escena</label>
+    <input type="text" class="form-control col-xs-8 col-sm-6 col-md-6" id="exampleInputText1" placeholder="ex: mi primer render">
+  </div>
+  <div class="form-group form-inline">
+    <label for="exampleInputText2" class="col-xs-3 col-sm-1 col-md-1">Frames desde:</label>
+    <input  type="text" class="form-control col-xs-6 col-sm-3 col-md-3" id="exampleInputText2" placeholder="frame inicio">
+    <label for="exampleInputText3" class="col-xs-3 col-sm-1 col-md-1">hasta:</label>  
+    <input type="text" class="form-control col-xs-6 col-sm-3 col-md-3" id="exampleInputText3" placeholder="frame final">
+  </div>-->
+  <!--<div class="form-group form-inline">
+    <label for="exampleInputFile">Archivo</label>
+    <input type="file" id="exampleInputFile">
+  </div>
+  <button type="submit" class="btn btn-default">Renderizar!</button>-->
+
+
+<!--<p>Nombre de Escena:<input id="scene" name="scene"></p>
+<p>Archivo: </p><input><a href="#">Buscar</a>
 <p>Frame Inicial <input id="frame_ini" name="frame_ini"></p> 
 <p>Frame Final <input id="frame_fin" name="frame_fin"></p> 
-<p><button id="echo">Renderizar!</button></p>
+<p><button id="echo">Renderizar!</button></p>-->
 
 
 
