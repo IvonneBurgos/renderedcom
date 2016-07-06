@@ -38,11 +38,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <button type="submit" class="btn btn-default">Renderizar</button>
-        </div>
-        <div class="col-md-6">
+            <button id="render" type="submit" class="btn btn-default">Renderizar</button>
             <button type="submit" class="btn btn-default">Cancelar</button>
         </div>
+        
         
     </div>
 </form>
