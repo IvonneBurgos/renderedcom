@@ -25,9 +25,8 @@
                 frame_ini: $('#frame_ini').val(),
                 frame_fin:$('#frame_fin').val()
 			};
-
 			$.post(url, data).success(function (response) {
-				$('#echo-result').text(response.scene + ' ... ' + response.frame_ini + ' ... ' + response.frame_fin );
+				$('#echo-result').text("Hola");
                 
 			});
 		});
