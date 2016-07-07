@@ -19,7 +19,9 @@
  */
 return [
     'routes' => [
-	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   ['name' => 'page#do_echo', 'url' => '/job', 'verb' => 'POST'],
+        ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+        ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
+        ['name' => 'job#create_job', 'url' => '/job', 'verb' => 'POST'],
+        ['name' => 'job#cancel_job', 'url' => '/job', 'verb' => 'POST'],
     ]
 ];

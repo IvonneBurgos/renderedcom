@@ -15,6 +15,7 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
+use OC\Files\Storage\Local;
 
 class JobController extends Controller {
 
@@ -36,11 +37,13 @@ class JobController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function createJob(){
-        
+	public function createJob($scene,$frame_ini,$frame_fin){
+        /*$array = ["datadir" => "Nube_Multimedia"];  
+        $datadir = new OC\Files\Storage\Local($array);*/
+      return new DataResponse("OK");
     }
-    public function cancelJob(){
-        
+    public function cancelJob($scene,$frame_ini,$frame_fin){
+         return new DataResponse("El trabajo ha sido cancelado");
     }
     
 }

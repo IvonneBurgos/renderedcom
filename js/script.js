@@ -19,7 +19,7 @@
 		});
         
 
-		$('#echo').click(function() {
+		$('#render').click(function() {
 			var url = OC.generateUrl('/apps/renderedcom/job');
 			var data = {
 				scene: $('#scene').val(),
@@ -27,12 +27,21 @@
                 frame_fin:$('#frame_fin').val()
 			};
 			$.post(url, data).success(function (response) {
-<<<<<<< HEAD
-				$('#echo-result').text("Hola");
-=======
-                
-				$('#echo-result').text(response.scene + ' ... ' + response.frame_ini + ' ... ' + response.frame_fin );
->>>>>>> 2fa765704d7f7a5f34950c70c2b5cea216d6e87f
+				$('#echo-result').text(response);
+			});
+		});
+        
+        
+        $('#cancel').click(function() {
+			var url = OC.generateUrl('/apps/renderedcom/cancel');
+			var data = {
+				scene: $('#scene').val(),
+                frame_ini: $('#frame_ini').val(),
+                frame_fin:$('#frame_fin').val()
+			};
+			$.post(url, data).success(function (response) {
+				$('#echo-result').text(response);
+
                 
 			});
 		});
