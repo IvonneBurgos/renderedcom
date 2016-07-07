@@ -12,14 +12,7 @@ form div {
 .formElements{
     width: 100% !important;
 }
-#render{
+#echo{
     margin-right: 0;
 }
 
-progress {
-                height: 300px;
-            }
-            .progress > svg {
-                height: 100%;
-                display: block;
-            }

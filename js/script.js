@@ -17,8 +17,9 @@
 		$('#hello').click(function () {
 			alert('Hello from your script file');
 		});
+        
 
-		$('#echo').click(function () {
+		$('#echo').click(function() {
 			var url = OC.generateUrl('/apps/renderedcom/job');
 			var data = {
 				scene: $('#scene').val(),
@@ -27,6 +28,7 @@
 			};
 
 			$.post(url, data).success(function (response) {
+                
 				$('#echo-result').text(response.scene + ' ... ' + response.frame_ini + ' ... ' + response.frame_fin );
                 
 			});

@@ -8,8 +8,8 @@
         <div class="col-md-2">
             <label class="formElements" >Nombre de Escena: </label>
         </div>
-        <div class="col-md-10">
-            <input class="formElements" type="text" placeholder="mi_render">
+        <div class="col-md-10" >
+            <input id="scene" name="scene" class="formElements" type="text" placeholder="mi_render">
         </div>
         
     </div>
@@ -26,25 +26,25 @@
         <div class="col-md-2">
                  <label>Frames desde: </label>
         </div>
-        <div class="col-md-4">
-             <input class="formElements" type="text" placeholder="0">
+        <div class="col-md-4" >
+             <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="0">
         </div>
         <div class="col-md-2">
                 <label>hasta: </label>
         </div>
         <div class="col-md-4">
-             <input class="formElements" type="text" placeholder="99">
+             <input id="frame_fin" name="frame_fin" class="formElements" type="text" placeholder="99" >
         </div>
     </div>
-    <div class="row">
+    
+</form>
+<div class="row">
         <div class="col-md-6">
-            <button id="render" type="submit" class="btn btn-default">Renderizar</button>
+            <button id="echo" type="submit" class="btn btn-default">Renderizar</button>
             <button type="submit" class="btn btn-default">Cancelar</button>
         </div>
-        
-        
-    </div>
-</form>
+</div>
+<div id="echo-result"></div>
   <!--<div class="form-group form-inline">
     <label for="exampleInputText1" class="col-xs-4 col-sm-2 col-md-2">Nombre de Escena</label>
     <input type="text" class="form-control col-xs-8 col-sm-6 col-md-6" id="exampleInputText1" placeholder="ex: mi primer render">
