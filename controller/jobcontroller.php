@@ -16,7 +16,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
-class PageController extends Controller {
+class JobController extends Controller {
 
 
 	private $userId;
@@ -36,17 +36,11 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function index() {
-		$params = ['user' => $this->userId];
-		return new TemplateResponse('renderedcom', 'main', $params);  // templates/main.php
-	}
-
-	/**
-	 * Simply method that posts back the payload of the request
-	 * @NoAdminRequired
-	 */
-	public function doEcho($scene,$frame_ini,$frame_fin) {
-		return new DataResponse(['scene' => $scene, 'frame_ini'=>$frame_ini, 'frame_fin'=>$frame_fin]);
-	}
+	public function createJob(){
+        
+    }
+    public function cancelJob(){
+        
+    }
     
 }

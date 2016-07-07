@@ -8,7 +8,11 @@
         <div class="col-md-2">
             <label class="formElements" >Nombre de Escena: </label>
         </div>
+<<<<<<< HEAD
         <div class="col-md-10">
+=======
+        <div class="col-md-10" >
+>>>>>>> 2fa765704d7f7a5f34950c70c2b5cea216d6e87f
             <input id="scene" name="scene" class="formElements" type="text" placeholder="mi_render">
         </div>
         
@@ -26,14 +30,23 @@
         <div class="col-md-2">
                  <label>Frames desde: </label>
         </div>
+<<<<<<< HEAD
         <div class="col-md-4">
              <input id="scene" name="scene" class="formElements" type="text" placeholder="0">
+=======
+        <div class="col-md-4" >
+             <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="0">
+>>>>>>> 2fa765704d7f7a5f34950c70c2b5cea216d6e87f
         </div>
         <div class="col-md-2">
                 <label>hasta: </label>
         </div>
         <div class="col-md-4">
+<<<<<<< HEAD
              <input id="scene" name="scene" class="formElements" type="text" placeholder="99">
+=======
+             <input id="frame_fin" name="frame_fin" class="formElements" type="text" placeholder="99" >
+>>>>>>> 2fa765704d7f7a5f34950c70c2b5cea216d6e87f
         </div>
     </div>
     
@@ -43,9 +56,13 @@
             <button id="echo" type="submit" class="btn btn-default">Renderizar</button>
             <button type="submit" class="btn btn-default">Cancelar</button>
         </div>
+<<<<<<< HEAD
      
         
     </div>
+=======
+</div>
+>>>>>>> 2fa765704d7f7a5f34950c70c2b5cea216d6e87f
 <div id="echo-result"></div>
   <!--<div class="form-group form-inline">
     <label for="exampleInputText1" class="col-xs-4 col-sm-2 col-md-2">Nombre de Escena</label>
