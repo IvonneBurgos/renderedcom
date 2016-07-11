@@ -31,8 +31,9 @@
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new OC\Files\Storage\Local($array);
         $datadir->mkdir($username);
-       // echo $scene;
-        /*echo $datadir->getSourcePath();
+        /*$scene
+        echo $scene;
+        echo $datadir->getSourcePath();
         echo ' su estado es: '. $datadir->isUpdatable('admin');	
         $varfolder= $username . '/' . $scene. '/';
         $datadir->mkdir($varfolder);

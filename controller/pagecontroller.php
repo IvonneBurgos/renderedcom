@@ -46,6 +46,7 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 */
 	public function doEcho($scene,$frame_ini,$frame_fin) {
+        
 		return new DataResponse(['scene' => $scene, 'frame_ini'=>$frame_ini, 'frame_fin'=>$frame_fin]);
 	}
     

@@ -33,16 +33,14 @@
         
         
         $('#cancel').click(function() {
-			var url = OC.generateUrl('/apps/renderedcom/cancel');
+			var url = OC.generateUrl('/apps/renderedcom/cancelJob');
 			var data = {
 				scene: $('#scene').val(),
                 frame_ini: $('#frame_ini').val(),
                 frame_fin:$('#frame_fin').val()
 			};
 			$.post(url, data).success(function (response) {
-				$('#echo-result').text(response);
-
-                
+                    $('#echo-result').text(response);
 			});
 		});
 	});

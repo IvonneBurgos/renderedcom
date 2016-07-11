@@ -1,8 +1,5 @@
 
-<!--<p>Hola <?php //p($_['user']) ?></p>-->
-
-
-    
+<p>Hola <?php p($_['user']) ?></p>
 <form>
     <div class="row">
         <div class="col-md-2">
@@ -43,6 +40,12 @@
 </div>
 
 <div id="echo-result"></div>
+<?php
+        /*$username = OC_User::getUser(); 
+        $array = ["datadir" => "Nube_Multimedia"];  
+        $datadir = new OC\Files\Storage\Local($array);
+        $datadir->mkdir($username);*/
+?>
   <!--<div class="form-group form-inline">
     <label for="exampleInputText1" class="col-xs-4 col-sm-2 col-md-2">Nombre de Escena</label>
     <input type="text" class="form-control col-xs-8 col-sm-6 col-md-6" id="exampleInputText1" placeholder="ex: mi primer render">
@@ -76,9 +79,9 @@
         $frame_ini=$_POST['frame_ini'];
         $frame_fin=$_POST['frame_fin'];
     
-        echo $scene;
+        echo $scene;*/
     
-       /* $array = ["datadir" => "Nube_Multimedia"];  
+        /*$array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new OC\Files\Storage\Local($array);
         $datadir->mkdir($username);
         $scene= "scene";

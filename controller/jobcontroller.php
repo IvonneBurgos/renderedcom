@@ -15,11 +15,12 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
-use OC\Files\Storage\Local;
+use \OC\Files\Storage\Local;
 
-class JobController extends Controller {
-
-
+class JobController extends Controller{
+    
+ 
+   
 	private $userId;
 
 	public function __construct($AppName, IRequest $request, $UserId){
@@ -38,9 +39,7 @@ class JobController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function createJob($scene,$frame_ini,$frame_fin){
-        /*$array = ["datadir" => "Nube_Multimedia"];  
-        $datadir = new OC\Files\Storage\Local($array);*/
-      return new DataResponse("OK");
+      return new DataResponse("ok");
     }
     public function cancelJob($scene,$frame_ini,$frame_fin){
          return new DataResponse("El trabajo ha sido cancelado");
