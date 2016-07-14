@@ -1,7 +1,3 @@
-
-<?php
- public function createFolder(){
-     echo "<script>alert('hasta que la dio')</script>"
- }
-
-?>
+<? php if ($_POST['name']=='Ivonne' ){
+    echo 'ES ACEPTADA';
+}?>

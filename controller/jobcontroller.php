@@ -15,14 +15,12 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
-use \OC\Files\Storage\Local;
+use OC\Files\Storage\Local as Local;
 
 class JobController extends Controller{
     
- 
-   
 	private $userId;
-
+  
 	public function __construct($AppName, IRequest $request, $UserId){
 		parent::__construct($AppName, $request);
 		$this->userId = $UserId;
@@ -38,11 +36,18 @@ class JobController extends Controller{
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function createJob($scene,$frame_ini,$frame_fin){
-      return new DataResponse("ok");
+	public function createFolder($scene,$frame_ini,$frame_fin){
+        $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
+         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
+        $array = ["datadir" => "Nube_Multimedia"];  
+        $datadir = new Local($array);
+        $varfolder= $userId . '/' . $scene. '/';
+        $datadir->mkdir($varfolder);
+        $data= array('usuario'=>$this->userId,'escena'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final);
+        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
+        //return new DataResponse('OK :)');*/
+        return new DataResponse($frame_ini);
     }
-    public function cancelJob($scene,$frame_ini,$frame_fin){
-         return new DataResponse("El trabajo ha sido cancelado");
-    }
+    
     
 }

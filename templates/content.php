@@ -40,6 +40,7 @@
 </div>
 
 <div id="echo-result"></div>
+
 <?php
         /*$username = OC_User::getUser(); 
         $array = ["datadir" => "Nube_Multimedia"];  
