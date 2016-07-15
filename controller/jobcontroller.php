@@ -37,20 +37,23 @@ class JobController extends Controller{
 	 * @NoCSRFRequired
 	 */
 	public function createJob($scene,$frame_ini,$frame_fin){
+        
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
-        createFolder($scene);
+        $varpath = $this->createFolder($scene);
         $data= array('usuario'=>$this->userId,'escena'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final);
-        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
+        $result= shell_exec('sh /opt/cgru/setup3.sh, python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
         //return new DataResponse('OK :)');*/
-        return new DataResponse('¡Trabajo enviado con éxito!');
+        return new DataResponse($varpath);
     }
     
     public function createFolder($scene){
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
-        $varfolder= $userId . '/' . $scene. '/';
+        $varfolder= $this->userId . '/' . $scene . '/';
         $datadir->mkdir($varfolder); 
+        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/' . $this->userId); 
+        return $varfolder;
     }
     
 }

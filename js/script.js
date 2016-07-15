@@ -14,7 +14,9 @@
 		$('#hello').click(function () {
 			alert('Hello from your script file');
 		});
-        
+        $("#scene").keyup(function(){
+            
+});
 		$('#render').click(function(){
 			var url = OC.generateUrl('/apps/renderedcom/job');
 			var data = {
