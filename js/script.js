@@ -14,9 +14,20 @@
 		$('#hello').click(function () {
 			alert('Hello from your script file');
 		});
-        $("#scene").keyup(function(){
-            
-});
+        
+         $("#frame_ini").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+               return false;
+    }
+   });
+        
+         $("#frame_fin").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+               return false;
+    }
+   });
 		$('#render').click(function(){
 			var url = OC.generateUrl('/apps/renderedcom/job');
 			var data = {

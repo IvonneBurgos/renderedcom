@@ -1,6 +1,6 @@
 
 <p>Hola <?php p($_['user']) ?></p>
-<form>
+<div id="form">
     <div class="row">
         <div class="col-md-2">
             <label class="formElements" >Nombre de Escena: </label>
@@ -13,15 +13,19 @@
         <div class="col-md-2">
             <label>Archivo: </label>
         </div>
-        <div class="col-md-10">
-            <input class="formElements" type="file" value="buscar">
+       <div class="col-md-8" >
+            <input id="file_path" name="file_path" class="formElements" type="text" placeholder="mi_archivo.xy">
         </div>
+        <div class="col-md-2" >
+           <button id="buscar" class="btn btn-primary formElements">Buscar</button>
+        </div>
+        
     </div>
     <div class="row">
-        <div class="col-md-2">
+        <div  class="col-md-2">
             <label>Frames desde: </label>
         </div>
-        <div class="col-md-4" >
+        <div id="div_ini" class="col-md-4" >
             <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="0">
         </div>
         <div class="col-md-2">
@@ -31,13 +35,14 @@
             <input id="frame_fin" name="frame_fin" class="formElements" type="text" placeholder="99" >
         </div>
     </div>
-</form>
-<div class="row">
+    <div class="row">
     <div class="col-md-6">
-        <button id="render" type="submit" class="btn btn-default">Renderizar</button>
-        <button id="cancel" type="submit" class="btn btn-default">Cancelar</button>
+        <button id="render" type="submit" class="btn btn-success">Renderizar</button>
+        <button id="cancel" type="submit" class="btn btn-danger">Cancelar</button>
     </div>
 </div>
+</div>
+
 
 <div id="echo-result"></div>
 
