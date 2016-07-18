@@ -1,19 +1,9 @@
-/**
- * ownCloud - renderedcom
- *
- * This file is licensed under the Affero General Public License version 3 or
- * later. See the COPYING file.
- *
- * @author IvonneBurgos <irburgos@espol.edu.ec>
- * @copyright IvonneBurgos 2016
- */
-(function ($, OC) {
-    function checkFields(){
+function checkFields(){
         var camposTexto = document.getElementsByTagName('input');
+        return camposTexto;
     }
     
-	$(document).ready(function () {
-        
+$(document).ready(function () {
 		
          $("#frame_ini").keypress(function (e) {
      //if the letter is not digit then display error and don't type anything
@@ -31,7 +21,7 @@
         
         
 		$('#render').click(function(){
-          checkFields();
+            alert(checkFields());
            /* checkedFields = checkFields($('#scene').val(),$('#frame_ini').val(), $('#frame_fin').val());
 
             if (checkedFields == false){
@@ -51,5 +41,3 @@
 		});
 	});
     
-
-})(jQuery, OC);

@@ -1,5 +1,5 @@
 <?php
-script('renderedcom', array('script','progressbar','validator'));
+script('renderedcom', array('script','progressbar'));
 style('renderedcom', array('style','bootstrap'));
 ?>
 

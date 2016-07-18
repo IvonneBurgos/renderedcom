@@ -42,7 +42,7 @@ class JobController extends Controller{
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
         $varpath = $this->createFolder($scene);
         $data= array('usuario'=>$this->userId,'escena'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final);
-        $result= shell_exec('sh /opt/cgru/setup.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
+        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
         //return new DataResponse('OK :)');*/
         return new DataResponse($result);
     }
