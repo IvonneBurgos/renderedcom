@@ -15,4 +15,24 @@
 #echo{
     margin-right: 0;
 }
+#alignLabel{
+     display: inline-block;
+     vertical-align: middle;
+}
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.labelPosition{
+    margin-top: 5% !important;
+}
+#label_frame_fin{
+    padding-left: 40% !important;
+}
+#render{
+    width: 100%;
+}
+
+
 

@@ -8,7 +8,7 @@
  * @copyright IvonneBurgos 2016
  */
 (function ($, OC) {
-    function checkEmptyFields(input_elements){
+  function checkEmptyFields(input_elements){
         var ban = true;
         var camposTexto = input_elements;
         for(var i = 0; i < camposTexto.length; i++){

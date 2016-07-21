@@ -48,6 +48,7 @@ class JobController extends Controller{
     }
     
     public function createFolder($scene){
+        
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
         $varfolder= $this->userId . '/' . $scene . '/';
