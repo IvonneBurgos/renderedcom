@@ -59,6 +59,7 @@
                     $('#echo-result').text(response);
                     });
                     }
+                    this.disabled = true;
                 }
         });
 	});
