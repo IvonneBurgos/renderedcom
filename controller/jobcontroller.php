@@ -57,4 +57,25 @@ class JobController extends Controller{
         return $varfolder;
     }
     
+    public function openDir(){
+        $array = ["datadir" => "Nube_Multimedia"];  
+        $datadir = new Local($array);
+        $dataSend = array();
+
+        // Open a known directory, and proceed to read its contents
+        if ($datadir->is_dir()) {
+             $hello= '1';
+            if ($dh = $datadir->opendir()) {
+                   $hello= 'hello';
+                while (($file = readdir($dh)) !== false) {
+                    array_push($dataSend, "filename:" . $file) ;
+                    $hello = 'hello';
+                }
+            closedir($dh);
+            }
+        }
+        
+        return new DataResponse($dataSend);
+    }
+    
 }

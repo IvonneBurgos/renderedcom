@@ -49,20 +49,31 @@
             var banNumber = checkNumberRange($('#frame_ini').val(),$('#frame_fin').val());
                 if (banField == true ){
                     if (banNumber == true ){
-                    var url = OC.generateUrl('/apps/renderedcom/job');
-                    var data = {
-                    scene: $('#scene').val(),
-                    frame_ini: $('#frame_ini').val(),
-                    frame_fin: $('#frame_fin').val()
-                    };
-                    $.post(url, data).success(function (response) {
-                    $('#echo-result').text(response);
-                    });
+                        var url = OC.generateUrl('/apps/renderedcom/job');
+                        var data = {
+                        scene: $('#scene').val(),
+                        frame_ini: $('#frame_ini').val(),
+                        frame_fin: $('#frame_fin').val()
+                        };
+                        $.post(url, data).success(function (response) {
+                        $('#echo-result').text(response);
+                        });
                     }
                     this.disabled = true;
                 }
         });
-	});
+        
+        $('#buscar').click(function(){
+            alert('si valgo');
+            var url = OC.generateUrl('/apps/renderedcom/find');
+            var data = {
+            confi: 'confirmacion'
+            };
+            $.post(url, data).success(function (response) {
+            $('#echo-result').text(response[0]);
+            });            
+        });
+    });
     
 
 })(jQuery, OC);
