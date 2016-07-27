@@ -64,7 +64,7 @@
         });
         
         $('#buscar').click(function(){
-            alert('si valgo');
+            document.getElementById("mySidenav").style.width = "50%";
             var url = OC.generateUrl('/apps/renderedcom/find');
             var data = {
             confi: 'confirmacion'
@@ -73,6 +73,12 @@
             $('#echo-result').text(response[0]);
             });            
         });
+        
+        $('#closeNav').click(function(){
+            document.getElementById("mySidenav").style.width = "0";
+        });
+        
+        
     });
     
 

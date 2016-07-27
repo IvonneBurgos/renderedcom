@@ -16,6 +16,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 use OC\Files\Storage\Local as Local;
+use OC\Files\Filesystem as Filesystem;
 
 class JobController extends Controller{
     
@@ -58,24 +59,28 @@ class JobController extends Controller{
     }
     
     public function openDir(){
+        
+       
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
         $dataSend = array();
+ 
 
         // Open a known directory, and proceed to read its contents
         if ($datadir->is_dir()) {
-             $hello= '1';
-            if ($dh = $datadir->opendir()) {
-                   $hello= 'hello';
+            $hello='1';
+            if ($dh = $datadir->opendir()){
                 while (($file = readdir($dh)) !== false) {
-                    array_push($dataSend, "filename:" . $file) ;
-                    $hello = 'hello';
+                    $archivo = $file; 
+                    $trozos = explode(".", $archivo); 
+                    $extension = end($trozos); 
+                    // mostramos la extensión del archivo 
+                    array_push($dataSend, "file extension:" . $extension) ;
                 }
             closedir($dh);
             }
         }
-        
-        return new DataResponse($dataSend);
+        return new DataResponse($hello);
     }
     
 }

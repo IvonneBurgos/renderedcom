@@ -1,7 +1,7 @@
 
-<p>Hola <?php p($_['user']) ?></p>
-<div id="form">
+<!--<p>Hola <?php //p($_['user']) ?></p>-->
 
+<div id="form">
     <div class="row">
         <div class="col-md-2">
             <label class='labelPosition'>Nombre de Escena: </label>
@@ -46,10 +46,11 @@
         <button id="cancel" type="submit" class="btn btn-danger">Cancelar</button>
     </div>
 </div>
+    <div id="echo-result"></div>
 </div>
 
 
-<div id="echo-result"></div>
+
 
 <?php
         /*$username = OC_User::getUser(); 
