@@ -70,7 +70,7 @@
             confi: 'confirmacion'
             };
             $.post(url, data).success(function (response) {
-            $('#echo-result').text(response[0]);
+            $('#echo-result').text(response);
             });            
         });
         

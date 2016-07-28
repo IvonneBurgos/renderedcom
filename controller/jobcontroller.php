@@ -60,16 +60,25 @@ class JobController extends Controller{
     
     public function openDir(){
         
+       // $path3='hello';
+        
+         $dataUser= new Filesystem();
+         $var2 = $dataUser->mkdir('Archivos_Originales');
+         //$path3 = $dataUser->getLocalFolder($var2);
+     
+        //$var2=OC\Files\Storage\Local::getSourcePath($var);
+        //$source=$sourceFolder->getMountPoint('Documents');
+        //$var2=OC\Files\Storage\Local::getSourcePath($var);
        
-        $array = ["datadir" => "Nube_Multimedia"];  
+       $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
         $dataSend = array();
  
 
         // Open a known directory, and proceed to read its contents
-        if ($datadir->is_dir()) {
-            $hello='1';
-            if ($dh = $datadir->opendir()){
+        if ($dataUser->is_dir('Archivos_Originales')) {
+            $hello = '1';
+            if ($dh = $dataUser->opendir('Archivos_Originales')){
                 while (($file = readdir($dh)) !== false) {
                     $archivo = $file; 
                     $trozos = explode(".", $archivo); 
@@ -80,7 +89,7 @@ class JobController extends Controller{
             closedir($dh);
             }
         }
-        return new DataResponse($hello);
+        return new DataResponse($dataSend);
     }
     
 }

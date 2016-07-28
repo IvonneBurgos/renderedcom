@@ -50,9 +50,10 @@
 </div>
 
 
-
-
 <?php
+  /* $var2 = OC\Files\Filesystem::mkdir('new');
+  $path = OC\Files\Filesystem::getLocalFolder($var2);
+echo $path;*/
         /*$username = OC_User::getUser(); 
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new OC\Files\Storage\Local($array);
@@ -127,7 +128,7 @@
 
         //echo $var2;
 
-        //$var2=OC\Files\Filesystem::mkdir($username);
+     
         //$arguments  = array("datadir" => $var);
         //$var2=OC\Files\Storage\Local::__construct($arguments);
         // $var2=OC\Files\Storage\Local::mkdir('shared/Jobs/new');
