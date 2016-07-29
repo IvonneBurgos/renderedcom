@@ -64,13 +64,18 @@
         });
         
         $('#buscar').click(function(){
+            var arrayFiles = Array();
             document.getElementById("mySidenav").style.width = "50%";
             var url = OC.generateUrl('/apps/renderedcom/find');
             var data = {
             confi: 'confirmacion'
             };
             $.post(url, data).success(function (response) {
-            $('#echo-result').text(response);
+                
+            for(var i= 0; i<response.length; i++){
+               arrayFiles.push('<a>'+response[i]+'</a>'); 
+            }    
+            $('#filesDisplay').html(arrayFiles);
             });            
         });
         

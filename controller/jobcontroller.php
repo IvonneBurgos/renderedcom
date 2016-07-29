@@ -63,7 +63,7 @@ class JobController extends Controller{
        // $path3='hello';
         
          $dataUser= new Filesystem();
-         $var2 = $dataUser->mkdir('Archivos_Originales');
+        // $var2 = $dataUser->mkdir('Archivos_Originales');
          //$path3 = $dataUser->getLocalFolder($var2);
      
         //$var2=OC\Files\Storage\Local::getSourcePath($var);
@@ -76,9 +76,9 @@ class JobController extends Controller{
  
 
         // Open a known directory, and proceed to read its contents
-        if ($dataUser->is_dir('Archivos_Originales')) {
+        if ($dataUser->is_dir('Documents')) {
             $hello = '1';
-            if ($dh = $dataUser->opendir('Archivos_Originales')){
+            if ($dh = $dataUser->opendir('Documents')){
                 while (($file = readdir($dh)) !== false) {
                     $archivo = $file; 
                     $trozos = explode(".", $archivo); 
