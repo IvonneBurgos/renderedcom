@@ -17,6 +17,8 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 use OC\Files\Storage\Local as Local;
 use OC\Files\Filesystem as Filesystem;
+use OC\Files\View as View;
+
 
 class JobController extends Controller{
     
@@ -58,38 +60,24 @@ class JobController extends Controller{
         return $varfolder;
     }
     
-    public function openDir(){
+ public function openDir(){
         
-       // $path3='hello';
-        
-         $dataUser= new Filesystem();
-        // $var2 = $dataUser->mkdir('Archivos_Originales');
-         //$path3 = $dataUser->getLocalFolder($var2);
-     
-        //$var2=OC\Files\Storage\Local::getSourcePath($var);
-        //$source=$sourceFolder->getMountPoint('Documents');
-        //$var2=OC\Files\Storage\Local::getSourcePath($var);
-       
-       $array = ["datadir" => "Nube_Multimedia"];  
-        $datadir = new Local($array);
+        $dataUser= new Filesystem();
+        $owner = $dataUser->getOwner('Documents');
         $dataSend = array();
- 
-
-        // Open a known directory, and proceed to read its contents
+        // Abrimos un directorio conocido, y procedemos a leer el contenido
         if ($dataUser->is_dir('Documents')) {
-            $hello = '1';
             if ($dh = $dataUser->opendir('Documents')){
                 while (($file = readdir($dh)) !== false) {
                     $archivo = $file; 
                     $trozos = explode(".", $archivo); 
                     $extension = end($trozos); 
                     // mostramos la extensión del archivo 
-                    array_push($dataSend, "file extension:" . $extension) ;
+                    array_push($dataSend, "Nombre de Archivo: " . $archivo . " y su dueño es " . $owner) ;
                 }
             closedir($dh);
             }
         }
         return new DataResponse($dataSend);
     }
-    
-}
+    }

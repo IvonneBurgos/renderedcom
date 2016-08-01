@@ -66,7 +66,7 @@
         $('#buscar').click(function(){
             var arrayFiles = Array();
             document.getElementById("mySidenav").style.width = "50%";
-            var url = OC.generateUrl('/apps/renderedcom/find');
+          /*  var url = OC.generateUrl('/apps/renderedcom/find');
             var data = {
             confi: 'confirmacion'
             };
@@ -76,7 +76,7 @@
                arrayFiles.push('<a>'+response[i]+'</a>'); 
             }    
             $('#filesDisplay').html(arrayFiles);
-            });            
+            }); */           
         });
         
         $('#closeNav').click(function(){
