@@ -1,7 +1,37 @@
 <div id="mySidenav" class="sidenav">
   <a href="#" id="closeNav" class='closebtn'>×</a>
     <div id="filesDisplay">
+
     <?php
+
+=======
+    
+        <?php
+        
+        /*$dataSend = array();
+        // Abrimos un directorio conocido, y procedemos a leer el contenido
+        if (OC\Files\Filesystem::is_dir('Documents')){
+            if ($dh = OC\Files\Filesystem::opendir('Documents')){
+                while (($file = readdir($dh)) !== false) {
+                    $archivo = $file; 
+                    $trozos = explode(".", $archivo); 
+                    $extension = end($trozos); 
+                    if ($extension == 'blend'){
+                         // mostramos la extensión del archivo y de acuerdo a la extension
+                    array_push($dataSend, "<a>" . $archivo . "</a>") ;
+                    }
+                }
+            closedir($dh);
+            }
+        }*/
+         ?>
+        <?php
+           /* $resultado = count($dataSend);
+            for ($i = 0; $i < $resultado; $i++){
+                echo $dataSend[$i];
+            }*/
+        ?>
+            <?php
 
         leer_archivos_y_directorios('Documents');
 
@@ -49,7 +79,6 @@
         }
     ?>   
 
-    </div>
 </div>
 
 <div id="progress">
