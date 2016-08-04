@@ -1,7 +1,11 @@
 <div id="mySidenav" class="sidenav">
   <a href="#" id="closeNav" class='closebtn'>×</a>
     <div id="filesDisplay">
+        
+        
+        <?php print_unescaped($this->inc('list')); ?>
         <?php
+        
         /*$dataSend = array();
         // Abrimos un directorio conocido, y procedemos a leer el contenido
         if (OC\Files\Filesystem::is_dir('Documents')){
@@ -27,7 +31,7 @@
         ?>
             <?php
         
-        leer_archivos_y_directorios('Documents');
+       /* leer_archivos_y_directorios('Documents');
      
     function leer_archivos_y_directorios($ruta)
     {
@@ -70,7 +74,7 @@
             echo $ruta;
             echo "<br/>No es ruta valida";
         }
-    }
+    }*/
      ?>   
         
     </div>
