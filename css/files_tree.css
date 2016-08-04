@@ -1,0 +1,161 @@
+.filestree #fileTable{
+	width:86%;
+	float:right;
+	margin-top:2.8em;
+	position:relative;
+}
+.filestree #fileTable.multiselect thead{
+	position:relative;
+}
+#content.filestree #filestable{
+	width:86%;
+	float:right;
+	position:relative;
+}
+#content.filestree #filestable.multiselect{
+	top:36px;
+}
+#content.filestree #filestable.multiselect thead{
+	position:relative;
+	top:0;
+}
+#files_tree{
+	position:absolute;
+	width:14%;
+	height:100%;
+	overflow:hidden;
+	box-shadow:#CCC -10px 30px 30px inset;
+}
+/** Shared **/
+	#files_tree_shared_line td{
+		padding:1em 0 0 1em;
+		border-top:1px dotted #CCC;
+	}
+	#files_tree_shared_line td label{
+		font-weight: 500;
+		width: 100%;
+		color:#999;
+	}
+	#files_tree_shared_line td input{
+		margin-right:0.35em;
+		opacity:0;
+		transition:all 1s ease;
+		-o-transition:all 1s ease;
+		-moz-transition:all 1s ease;
+		-webkit-transition: all 1s ease;
+	}
+	#files_tree_shared_line td:hover input{
+		opacity:1;
+	}
+	
+/** Button **/
+#files_tree_refresh{
+	position:absolute;
+	width:20px;
+	height:20px;
+	top:42px;
+	right:27px;
+	background-color:transparent;
+	cursor:pointer;
+	display:none;
+	background-repeat:no-repeat;
+	background-position: center center;
+}
+#files_tree:hover #files_tree_refresh{
+	display:block;
+}	
+	
+/** Switcher **/
+#files_tree_switcher{
+	position:absolute;
+	width:10px;
+	height:100%;
+	top:0;
+	right:0;
+	background:#EEE;
+	cursor:pointer;
+	border-left:#CCC 1px solid;
+}
+#files_tree_switcher:hover{
+	background:#CCC;
+}
+
+/** Browser **/
+#dir_browser{
+	margin:50px 10px 0 0px;
+	padding-left:15px;
+	font-size:1em;
+	width:100px;
+	height:300px;
+	overflow:auto;
+	background:none !important;
+}
+
+#dir_browser ul{
+	padding-left:0px;
+	position:relative;
+	font-size:0.95em;
+	line-height:1.1em;
+        opacity:0.9;
+}
+#dir_browser li.collapsed{
+	background-image:url('../files_tree/img/closed.png');
+}
+#dir_browser li.expanded{
+	background-image:url('../files_tree/img/open.png');
+}
+#dir_browser li.collapsed li, #dir_browser li.expanded li.collapsed li{
+	display:none;
+}
+#dir_browser ul li{
+	display:block;
+	padding-left:21px;
+	margin-left:-14px;
+	padding-top:-10px;
+	background-image: url(../img/closed.png);
+	background-repeat:no-repeat;
+	background-position: 2px 0px;
+	min-height:14px;
+	position:relative;
+}
+#dir_browser ul li a.ft_link{
+	display:block;
+	background-color:transparent;
+	padding:4px;
+	margin-left:-4px;
+}
+#dir_browser ul li a.ft_link:hover{
+	background-color:#EEE;
+}
+
+#dir_browser li a.ft_sesam{
+	position:absolute;
+	top:3px;
+	left:5px;
+	width:4px;
+	height:4px;
+	min-height:4px;
+	padding:1px;
+	border:#999 1px solid;
+	background:#FFF;
+	display:block !important;
+	opacity:0;
+}
+
+#dir_browser ul li.o{	
+	/*border:#333 1px solid;*/
+}
+#dir_browser ul li.c{
+	/*border:#CCC 1px solid;*/
+}
+
+.loading{
+	font-weight:bold;
+	color:#999;
+	font-size:0.9em;
+}
+
+
+#dir_browser:hover li a.ft_sesam{
+	opacity:1;
+}
