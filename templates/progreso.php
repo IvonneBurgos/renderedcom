@@ -2,9 +2,6 @@
   <a href="#" id="closeNav" class='closebtn'>×</a>
     <div id="filesDisplay">
 
-    <?php
-
-=======
     
         <?php
         

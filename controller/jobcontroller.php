@@ -17,7 +17,7 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 use OC\Files\Storage\Local as Local;
 use OC\Files\Filesystem as Filesystem;
-use OC\Files\View as View;
+use OC\Files\Utils\Scanner as Scanner;
 
 
 class JobController extends Controller{
@@ -45,7 +45,7 @@ class JobController extends Controller{
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
         $varpath = $this->createFolder($scene);
         $data= array('user'=>$this->userId,'scene'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=>$varpath);
-        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job.py" ' . escapeshellarg(json_encode($data)));
+        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job2.py" ' . escapeshellarg(json_encode($data)));
         //return new DataResponse('OK :)');*/
         return new DataResponse($result);
     }
@@ -56,7 +56,7 @@ class JobController extends Controller{
         $datadir = new Local($array);
         $varfolder= $this->userId . '/' . $scene . '/';
         $datadir->mkdir($varfolder); 
-        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/' . $this->userId); 
+        $result= shell_exec('chmod 777 -R /var/www/owncloud/data/admin/files/Documents/prueba'); 
         return $varfolder;
     }
     
@@ -80,4 +80,20 @@ class JobController extends Controller{
         }
         return new DataResponse($dataSend);
     }
+    
+public function scanDir(){
+    
+    $scanner = new Scanner(this->$user, \OC::$server->getDatabaseConnection(), \OC::$server->getLogger());
+    try {
+			$scanner->scan('../files/Documents/prueba');
+		} catch (ForbiddenException $e) {
+			$output->writeln("<error>Home storage for user $user not writable</error>");
+			$output->writeln("Make sure you're running the scan command only as the user the web server runs as");
+		} catch (\Exception $e) {
+			# exit the function if ctrl-c has been pressed 
+			return new DataResponse($output); 
+		}
+    
+   
+}
     }

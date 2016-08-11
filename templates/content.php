@@ -37,7 +37,9 @@
         </div>
     </div>
     <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        <button id="scan" type="submit" class="btn btn-danger">Scan</button>
+    </div>
         
     <div class="col-md-4">
         <button id="render" type="submit" class="btn btn-success">Renderizar</button>
@@ -47,4 +49,5 @@
     </div>
 </div>
     <div id="echo-result"></div>
+    
 </div>

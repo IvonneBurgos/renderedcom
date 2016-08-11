@@ -79,6 +79,16 @@
             }); */           
         });
         
+         $('#scan').click(function(){
+                        var url = OC.generateUrl('/apps/renderedcom/scan');
+                        var data = {
+                        };
+                        $.post(url, data).success(function (response) {
+                        $('#echo-result').text(response);
+                        });
+                    
+        });
+        
         $('#closeNav').click(function(){
             document.getElementById("mySidenav").style.width = "0";
         });
