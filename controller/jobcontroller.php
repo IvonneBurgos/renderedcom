@@ -52,11 +52,13 @@ class JobController extends Controller{
     
     public function createFolder($scene){
         
-        $array = ["datadir" => "Nube_Multimedia"];  
+        $dataUser = new Filesystem();
+        $varfolder = $dataUser->mkdir('Documents/'. $scene);
+        /*$array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
         $varfolder= $this->userId . '/' . $scene . '/';
-        $datadir->mkdir($varfolder); 
-        $result= shell_exec('chmod 777 -R /var/www/owncloud/data/admin/files/Documents/prueba'); 
+        $datadir->mkdir($varfolder); */
+        $result= shell_exec('chmod 777 -R /var/www/owncloud/data/'. $this->userId .'/files/Documents/' . $scene); 
         return $varfolder;
     }
     
@@ -83,17 +85,21 @@ class JobController extends Controller{
     
 public function scanDir(){
     
-    $scanner = new Scanner(this->$user, \OC::$server->getDatabaseConnection(), \OC::$server->getLogger());
+    $responseScan= 'hello';
+    
+    $scanner = new Scanner($this->userId, \OC::$server->getDatabaseConnection(), \OC::$server->getLogger());
     try {
-			$scanner->scan('../files/Documents/prueba');
+			$scanner->scan('/files/Documents/prueba');
+            $responseScan = 'hello2Ingreso';
 		} catch (ForbiddenException $e) {
-			$output->writeln("<error>Home storage for user $user not writable</error>");
+			$output->writeln("<error>Home storage for user $this->userId not writable</error>");
 			$output->writeln("Make sure you're running the scan command only as the user the web server runs as");
+           $responseScan = 'error de la jostys';
 		} catch (\Exception $e) {
 			# exit the function if ctrl-c has been pressed 
-			return new DataResponse($output); 
+			return new DataResponse('Hubo un error'); 
 		}
-    
+    return new DataResponse($responseScan); 
    
 }
     }
