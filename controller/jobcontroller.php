@@ -54,52 +54,12 @@ class JobController extends Controller{
         
         $dataUser = new Filesystem();
         $varfolder = $dataUser->mkdir('Documents/'. $scene);
-        /*$array = ["datadir" => "Nube_Multimedia"];  
-        $datadir = new Local($array);
-        $varfolder= $this->userId . '/' . $scene . '/';
-        $datadir->mkdir($varfolder); */
         $result= shell_exec('chmod 777 -R /var/www/owncloud/data/'. $this->userId .'/files/Documents/' . $scene); 
         return $varfolder;
     }
-    
- public function openDir(){
-        
-        $dataUser= new Filesystem();
-        $owner = $dataUser->getOwner('Documents');
-        $dataSend = array();
-        // Abrimos un directorio conocido, y procedemos a leer el contenido
-        if ($dataUser->is_dir('Documents')) {
-            if ($dh = $dataUser->opendir('Documents')){
-                while (($file = readdir($dh)) !== false) {
-                    $archivo = $file; 
-                    $trozos = explode(".", $archivo); 
-                    $extension = end($trozos); 
-                    // mostramos la extensión del archivo 
-                    array_push($dataSend, "Nombre de Archivo: " . $archivo . " y su dueño es " . $owner) ;
-                }
-            closedir($dh);
-            }
-        }
-        return new DataResponse($dataSend);
-    }
-    
 public function scanDir(){
     
-    $responseScan= 'hello';
+    //$result= shell_exec('php /var/www/owncloud/console.php files:scan user1'); 
     
-    $scanner = new Scanner($this->userId, \OC::$server->getDatabaseConnection(), \OC::$server->getLogger());
-    try {
-			$scanner->scan('/files/Documents/prueba');
-            $responseScan = 'hello2Ingreso';
-		} catch (ForbiddenException $e) {
-			$output->writeln("<error>Home storage for user $this->userId not writable</error>");
-			$output->writeln("Make sure you're running the scan command only as the user the web server runs as");
-           $responseScan = 'error de la jostys';
-		} catch (\Exception $e) {
-			# exit the function if ctrl-c has been pressed 
-			return new DataResponse('Hubo un error'); 
-		}
-    return new DataResponse($responseScan); 
-   
 }
     }
