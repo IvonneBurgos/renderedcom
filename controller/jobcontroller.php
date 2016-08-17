@@ -15,9 +15,7 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
-use OC\Files\Storage\Local as Local;
 use OC\Files\Filesystem as Filesystem;
-use OC\Files\Utils\Scanner as Scanner;
 
 
 class JobController extends Controller{
@@ -57,9 +55,5 @@ class JobController extends Controller{
         $result= shell_exec('chmod 777 -R /var/www/owncloud/data/'. $this->userId .'/files/Documents/' . $scene); 
         return $varfolder;
     }
-public function scanDir(){
-    
-    //$result= shell_exec('php /var/www/owncloud/console.php files:scan user1'); 
-    
-}
+
     }
