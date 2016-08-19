@@ -16,7 +16,6 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 use OC\Files\Filesystem as Filesystem;
-use OC\Files\Storage\Local as Local;
 
 
 class JobController extends Controller{
@@ -43,23 +42,16 @@ class JobController extends Controller{
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
         $varpath = $this->createFolder($scene);
-                   $data= array('user'=> $this->userId,'scene'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
+                    $data= array('user'=>$this->userId,'scene'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=>$varpath);
         $result= shell_exec('sh /opt/cgru/setup.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
         return new DataResponse($result);
     }
     
     protected function createFolder($scene){
-       $array = ["datadir" => "Nube_Multimedia"];  
-        $datadir = new Local($array);
-        $varfolder= $this->userId . '/' . $scene. '/';
-        $datadir->mkdir($varfolder); 
-        /* $dataUser = new Filesystem();
-        $varfolder = $dataUser->mkdir('Documents/'. $scene);*/
-        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene); 
+        $dataUser = new Filesystem();
+        $varfolder = $dataUser->mkdir('Documents/'. $scene);
+        $result= shell_exec('chmod 777 -R /var/www/owncloud/data/'. $this->userId .'/files/Documents/' . $scene); 
         return $varfolder;
     }
-	public function cpFolder() {
-		$result2 = shell_exec ('cp -R /var/www/owncloud/Nube_Multimedia/admin/ewrwe /var/www/owncloud/data/admin/files/Documents');
-        return new DataResponse($result2);
-	}
+
     }
