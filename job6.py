@@ -25,10 +25,10 @@ job.setMaxRunningTasks( 5)
 block = af.Block('blenderRender', 'blender')
 
 # Set block tasks working directory
-block.setWorkingDirectory('/var/www/owncloud/data/'+data["user"]+'/files/Documents')
+block.setWorkingDirectory('/var/www/owncloud/data/'+data["user"]+'/files/'+data["directory"])
 
 # Set block tasks command
-block.setCommand('blender -b \"/var/www/owncloud/data/'+data["user"]+'/files/Documents/scene.blend\" -o \"/var/www/owncloud/Nube_Multimedia/'+data["user"]+'/'+data["scene"]+'/image\" -s @#@ -e @#@ -j 1 -a')
+block.setCommand('blender -b \"/var/www/owncloud/data/'+data["user"]+'/files/'+data["file_path"]'\" -o \"/var/www/owncloud/Nube_Multimedia/'+data["user"]+'/'+data["scene"]+'/image\" -s @#@ -e @#@ -j 1 -a')
 
 # Set block tasks preview command arguments
 block.setFiles(["/var/www/owncloud/Nube_Multimedia/"+data["user"]+"/"+data["scene"]+"/image"])

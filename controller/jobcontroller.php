@@ -38,12 +38,13 @@ class JobController extends Controller{
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function createJob($scene,$frame_ini,$frame_fin){
-        
+	public function createJob($scene,$file_path,$frame_ini,$frame_fin){
+        $directory = explode('/', $file_path, -1);
+        $directory = join('/', $directory);
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
         $varpath = $this->createFolder($scene);
-                   $data= array('user'=> $this->userId,'scene'=> $scene,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
+                   $data= array('user'=> $this->userId,'scene'=> $scene, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
         $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
         return new DataResponse($result);
     }

@@ -1,4 +1,6 @@
-
+#app-content {
+    margin: 0;
+}
 #form {
     padding-top: 10%;
     padding-left: 5%;
@@ -31,24 +33,45 @@
     width: 100%;
 }
 
+
 /*SIDE SEARCH*/
-
-
 .sidenav {
+    background-color: #1d2d44;
+    color: white;
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 0;
     right: 0;
     float: right;
-    background-color: #1d2d44;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.sidenav-top {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 0 10px;
+}
+.sidenav-top h2 {
+    width: 100%;
+}
+.closebtn {
+    font-size: 36px !important;
+}
+.sidenav-top h2, .sidenav-top a {
+    margin: 0;
+    padding: 0;
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    text-decoration: none;
 }
 
-.sidenav a {
+/*.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -56,15 +79,7 @@
     display: block;
     transition: 0.3s
 }
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-.closebtn {
-    position: absolute;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
-
-}
+.sidenav-title {
+    color: white;
+    margin-top: 0;
+}*/
