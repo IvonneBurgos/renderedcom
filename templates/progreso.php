@@ -35,7 +35,13 @@
 								}
 								else
 								{
-									echo '<br /><a href="#" class="file" url="' . $ruta_completa .'">' . $file . '</a><br />';
+									//Sólo archivos .blend
+									$extension = end( explode('.', $file));
+
+									if ($extension === "blend"){
+										echo '<br /><a href="#" class="file" url="' . $ruta_completa .'">' . $file . '</a><br />';
+
+									}
 								}
 							}
 						} 
