@@ -71,6 +71,10 @@
     text-decoration: none;
 }
 
+.lower {
+   text-transform: lowercase;
+}
+
 /*.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;

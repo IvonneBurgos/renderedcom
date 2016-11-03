@@ -5,7 +5,7 @@
             <label class='labelPosition'>Nombre de Escena: </label>
         </div>
         <div class="col-md-10">
-            <input id="scene" name="scene" class="formElements" type="text" placeholder="mi_render">
+            <input id="scene" name="scene" class="formElements lower" type="text" placeholder="mi_render">
         </div>
         </div>
     <div class="row">
