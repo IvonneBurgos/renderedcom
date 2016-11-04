@@ -5,56 +5,75 @@
 	</div>
 	<div id="filesDisplay">
 		<?php
-			leer_archivos_y_directorios('.');
+		    $allowed = array("blend");
+			echo php_file_tree("./data/" . $_[user] . "/files", "javascript:alert('You clicked on [link]');", $allowed);
+			
+			function php_file_tree($directory, $return_link, $extensions = array()) {
+				// Generates a valid XHTML list of all directories, sub-directories, and files in $directory
+				// Remove trailing slash
+				if( substr($directory, -1) == "/" ) $directory = substr($directory, 0, strlen($directory) - 1);
+				$code .= php_file_tree_dir($directory, $return_link, $extensions);
+				return $code;
+			}
 
-			function leer_archivos_y_directorios($ruta)
-			{
-				// comprobamos si lo que nos pasan es un direcotrio
-				if (OC\Files\Filesystem::is_dir($ruta))
-				{
-					// Abrimos el directorio y comprobamos que
-					if ($dh = OC\Files\Filesystem::opendir($ruta))
-					{
-						while (($file = readdir($dh)) !== false)
-						{
-							// Si quisieramos mostrar todo el contenido del directorio pondríamos lo siguiente:
-							// echo '<br />' . $file . '<br />';
-							// Pero como lo que queremos es mostrar todos los archivos excepto "." y ".."
-							if ($file!="." && $file!="..")
-							{
-								$ruta_completa = $ruta . '/' . $file;
-								$ruta_completa = str_replace("./", "", $ruta_completa);
-								// $ruta_sin_punto = preg_filter('./', '', $ruta_completa);
-								// Comprobamos si la ruta más file es un directorio (es decir, que file es
-								// un directorio), y si lo es, decimos que es un directorio y volvemos a
-								// llamar a la función de manera recursiva.
-								if (OC\Files\Filesystem::is_dir($ruta_completa))
-								{
-									echo '<br /><strong>Directorio:</strong> <a href="#" class="route">' . $ruta_completa . '</a>';
-									leer_archivos_y_directorios($ruta_completa);
-								}
-								else
-								{
-									//Sólo archivos .blend
-									$extension = end( explode('.', $file));
-
-									if ($extension === "blend"){
-										echo '<br /><a href="#" class="file" url="' . $ruta_completa .'">' . $file . '</a><br />';
-
-									}
-								}
-							}
-						} 
-						closedir($dh);
-						// Tiene que ser ruta y no ruta_completa por la recursividad
-						// echo "<strong>Fin Directorio:</strong><a>" . $ruta . "</a><br /><br />";
+			function php_file_tree_dir($directory, $return_link, $extensions = array(), $first_call = true) {
+				// Recursive function called by php_file_tree() to list directories/files
+				
+				// Get and sort directories/files
+				if( function_exists("scandir") ) $file = scandir($directory); else $file = php4_scandir($directory);
+				natcasesort($file);
+				// Make directories first
+				$files = $dirs = array();
+				foreach($file as $this_file) {
+					if( is_dir("$directory/$this_file" ) ) $dirs[] = $this_file; else $files[] = $this_file;
+				}
+				$file = array_merge($dirs, $files);
+				
+				// Filter unwanted extensions
+				if( !empty($extensions) ) {
+					foreach( array_keys($file) as $key ) {
+						if( !is_dir("$directory/$file[$key]") ) {
+							$ext = substr($file[$key], strrpos($file[$key], ".") + 1); 
+							if( !in_array($ext, $extensions) ) unset($file[$key]);
+						}
 					}
 				}
-				else
-				{
-					echo $ruta;
-					echo "<br/>No es ruta válida";
+				
+				if( count($file) > 2 ) { // Use 2 instead of 0 to account for . and .. "directories"
+					$php_file_tree = "<ul";
+					if( $first_call ) { $php_file_tree .= " class=\"php-file-tree\""; $first_call = false; }
+					$php_file_tree .= ">";
+					foreach( $file as $this_file ) {
+						if( $this_file != "." && $this_file != ".." ) {
+							$route = $directory . "/" . $this_file;
+							$route = str_replace("./data/admin/files/", "", $route);
+							if( is_dir("$directory/$this_file") ) {
+								// Directory
+								$php_file_tree .= "<li class=\"pft-directory\"><a href=\"#\">" . htmlspecialchars($this_file) . "</a>";
+								$php_file_tree .= php_file_tree_dir("$directory/$this_file", $return_link ,$extensions, false);
+								$php_file_tree .= "</li>";
+							} else {
+								// File
+								// Get extension (prepend 'ext-' to prevent invalid classes from extensions that begin with numbers)
+								$ext = "ext-" . substr($this_file, strrpos($this_file, ".") + 1); 
+								$link = str_replace("[link]", "$directory/" . urlencode($this_file), $return_link);
+								$php_file_tree .= "<li class=\"pft-file " . strtolower($ext) . "\"><a class=\"file\" url='" . $route . "' href=\"$link\">" . htmlspecialchars($this_file) . "</a></li>";
+							}
+						}
+					}
+					$php_file_tree .= "</ul>";
 				}
+				return $php_file_tree;
+			}
+
+			// For PHP4 compatibility
+			function php4_scandir($dir) {
+				$dh  = opendir($dir);
+				while( false !== ($filename = readdir($dh)) ) {
+				    $files[] = $filename;
+				}
+				sort($files);
+				return($files);
 			}
 		?>
 	</div>
