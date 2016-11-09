@@ -77,18 +77,29 @@
 #filesDisplay {
     padding: 10px 20px;
 }
-/*.pft-directory {
-    color: #fff;
-    background-color: #419;
+.php-file-tree {
+    margin-left: 20px;
+}
+.php-file-tree li {
+    padding-bottom: 10px;
+    width: 100%;
+    /*background-color: #047;*/
 }
 .closed, .open {
-    background-color: #63b;
+    /*background-color: #63b;*/
     margin: auto 0;
     height: 100%;
 }
-.pft-directory .pft-directory, .pft-directory .pft-file {
+.pft-directory ul {
     padding-left: 20px;
-}*/
+}
+.php-file-tree a {
+    color: #fff;
+    width: 100%;
+}
+.php-file-tree a:focus {
+    color: #fff;
+}
 /*.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;

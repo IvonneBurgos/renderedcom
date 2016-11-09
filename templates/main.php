@@ -1,6 +1,6 @@
 <?php
 script('renderedcom', array('script','progressbar','php_file_tree'));
-style('renderedcom', array('style','bootstrap', 'default'));
+style('renderedcom', array('default','style','bootstrap'));
 ?>
 
 <div id="app" >

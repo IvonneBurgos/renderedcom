@@ -1,18 +1,18 @@
 
 <div id="form">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label class='labelPosition'>Nombre de Escena: </label>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
             <input id="scene" name="scene" class="formElements lower" type="text" placeholder="mi_render">
         </div>
         </div>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label class='labelPosition'>Archivo: </label>
         </div>
-       <div class="col-md-8" >
+       <div class="col-md-6" >
             <input id="file_path" name="file_path" class="formElements" type="text" placeholder="mi_archivo.xy">
         </div>
         <div class="col-md-2" >
@@ -21,16 +21,16 @@
         
     </div>
     <div class="row">
-        <div  class="col-md-2">
+        <div  class="col-md-3">
             <label class='labelPosition'>Frames desde: </label>
         </div>
-        <div id="div_ini" class="col-md-4" >
+        <div id="div_ini" class="col-md-3" >
             <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="0">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <label class='labelPosition' id='label_frame_fin'>hasta: </label>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <input id="frame_fin" name="frame_fin" class="formElements" type="text" placeholder="99" >
         </div>
     </div>
