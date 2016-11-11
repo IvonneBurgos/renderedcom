@@ -28,14 +28,14 @@
 		font-style: normal;
 	}
 	
-	.php-file-tree .pft-directory {
+	/*.php-file-tree .pft-directory {
 		list-style-image: url(images/directory.png);
-	}
+	}*/
 	
 	/* Default file */
-	.php-file-tree LI.pft-file { list-style-image: url(images/file.png); }
+	/*.php-file-tree LI.pft-file { list-style-image: url(images/file.png); }*/
 	/* Additional file types */
-	.php-file-tree LI.ext-3gp { list-style-image: url(images/film.png); }
+	/*.php-file-tree LI.ext-3gp { list-style-image: url(images/film.png); }
 	.php-file-tree LI.ext-afp { list-style-image: url(images/code.png); }
 	.php-file-tree LI.ext-afpa { list-style-image: url(images/code.png); }
 	.php-file-tree LI.ext-asp { list-style-image: url(images/code.png); }
@@ -92,6 +92,5 @@
 	.php-file-tree LI.ext-wmv { list-style-image: url(images/film.png); }
 	.php-file-tree LI.ext-xls { list-style-image: url(images/xls.png); }
 	.php-file-tree LI.ext-xml { list-style-image: url(images/code.png); }
-	.php-file-tree LI.ext-zip { list-style-image: url(images/zip.png); }
+	.php-file-tree LI.ext-zip { list-style-image: url(images/zip.png); }*/
 	/* You can add millions of these... */
-

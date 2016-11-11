@@ -22,7 +22,6 @@
   width: 100%;
   margin: 0 auto;
 }
-
 .labelPosition{
     margin-top: 5% !important;
 }
@@ -34,12 +33,12 @@
 }
 
 
-/*SIDE SEARCH*/
+/* ---- sidenav ---- */
 .sidenav {
     background-color: #1d2d44;
     color: white;
     height: 100%;
-    width: 0;
+    width: 30%;
     position: fixed;
     z-index: 1;
     right: 0;
@@ -70,23 +69,47 @@
     color: #f1f1f1;
     text-decoration: none;
 }
-
 .lower {
    text-transform: lowercase;
 }
 #filesDisplay {
     padding: 10px 20px;
 }
+.render-form {
+    margin: auto;
+}
+
+/* ---- sidenav (END) ---- */
+
+
+/* ---- File tree ---- */
+
+.php-file-tree {
+    /*font-family: Georgia;*/
+    font-size: 16px;
+    letter-spacing: 1px;    line-height: 1.5;
+}
+.php-file-tree A {
+    color: #000000;
+    text-decoration: none;
+}
+.php-file-tree A:hover {
+    color: #666666;
+}
+.php-file-tree .open {
+    font-style: italic;
+}
+.php-file-tree .closed {
+    font-style: normal;
+}
 .php-file-tree {
     margin-left: 20px;
 }
-.php-file-tree li {
+.php-file-tree .pft-file {
     padding-bottom: 10px;
     width: 100%;
-    /*background-color: #047;*/
 }
 .closed, .open {
-    /*background-color: #63b;*/
     margin: auto 0;
     height: 100%;
 }
@@ -100,6 +123,13 @@
 .php-file-tree a:focus {
     color: #fff;
 }
+.php-file-tree i {
+    padding-right: 10px;
+}
+
+/* ---- File tree (END) ---- */
+
+
 /*.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
