@@ -1,10 +1,5 @@
 <ul>
-	<li><a href="#">First level entry</a></li>
-	<li>
-		<a href="#">First level container</a>
-		<ul>
-			<li><a href="#">Second level entry</a></li>
-			<li><a href="#">Second level entry</a></li>
-		</ul>
-	</li>
+	<!-- <li><a id="endJob" href="#">Trabajos Finalizados</a></li> -->
+	<li><a id="processJob" href="/owncloud/index.php/apps/mistrabajos/">Trabajos</a></li>
+	<li><a id="render-edcom" href="/owncloud/index.php/apps/renderedcom/">Render Edcom</a></li>
 </ul>

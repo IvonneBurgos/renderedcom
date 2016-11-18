@@ -6,15 +6,12 @@ style('renderedcom', array('bootstrap', 'font-awesome.min','style'));
 <div id="app" >
 	<div id="app-content" class="row" >
 		<div id="app-content-wrapper" class="col-xs-12 col-sm-12 col-md-12">
-            <div id="job-nav" class="col-xs-12 col-sm-2 col-md-2 sidenav">
+            <div id="job-nav" class="col-xs-12 col-sm-2 col-md-2 sidenav-left">
                 <p id="userNameFront" class="bg-success"><?php p($_['user']);?></p>
                 <?php print_unescaped($this->inc('part.navigation')); ?>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 render-form">
+            <div class="col-xs-12 col-sm-10 col-md-10 render-form">
                 <?php print_unescaped($this->inc('content')); ?>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <?php print_unescaped($this->inc('progreso')); ?>
             </div>
 		</div>
 	</div>

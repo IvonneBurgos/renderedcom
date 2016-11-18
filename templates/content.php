@@ -1,7 +1,7 @@
 
 <div id="form">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <label class='labelPosition'>Nombre de Escena: </label>
         </div>
         <div class="col-md-8">
@@ -9,25 +9,28 @@
         </div>
         </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <label class='labelPosition'>Archivo: </label>
         </div>
-       <div class="col-md-6" >
+        <div class="col-md-6" >
             <input id="file_path" name="file_path" class="formElements" type="text" placeholder="mi_archivo.xy">
         </div>
-        <div class="col-md-2" >
+        <div class="col-md-1"></div>
+        <div class="col-md-1" >
            <button id="buscar" class="btn btn-primary formElements">Buscar</button>
         </div>
-        
+        <div id="progress-div" class="col-xs-12 col-sm-6 col-md-6 progress">
+            <?php print_unescaped($this->inc('progreso')); ?>
+        </div>
     </div>
     <div class="row">
-        <div  class="col-md-3">
+        <div  class="col-md-2">
             <label class='labelPosition'>Frames desde: </label>
         </div>
         <div id="div_ini" class="col-md-3" >
             <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="0">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label class='labelPosition' id='label_frame_fin'>hasta: </label>
         </div>
         <div class="col-md-3">
@@ -35,13 +38,9 @@
         </div>
     </div>
     <div class="row">
-    <div class="col-md-4">
-        <button id="render" type="submit" class="btn btn-success">Renderizar</button>
+        <div class="col-md-2">
+            <button id="render" type="submit" class="btn btn-success">Renderizar</button>
+        </div>
     </div>
-    <div class="col-md-2">   
-        <button id="cancel" type="submit" class="btn btn-danger">Cancelar</button>
-    </div>
-</div>
     <div id="echo-result"></div>
-    
 </div>

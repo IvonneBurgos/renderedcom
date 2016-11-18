@@ -74,7 +74,7 @@
 		
 		$('#buscar').click(function(){
 			var arrayFiles = Array();
-			document.getElementById("mySidenav").style.width = "30%";
+			$("#progress-div").show();
 		});
 
 		$('.file').click(function() {

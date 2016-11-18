@@ -1,22 +1,22 @@
 <div id="mySidenav" class="sidenav">
 	<div class="sidenav-top">
-		<h2 class="sidenav-title">Directorio</h2>
-		<a href="#" id="closeNav" class='closebtn'>×</a>
+		<!-- <h2 class="sidenav-title">Directorio</h2>
+		<a href="#" id="closeNav" class='closebtn'>×</a> -->
 	</div>
 	<div id="filesDisplay">
 		<?php
 		    $allowed = array("blend");
-			echo php_file_tree("./data/" . $_[user] . "/files", "javascript:alert('You clicked on [link]');", $allowed);
+			echo php_file_tree("./data/" . $_[user] . "/files", "javascript:alert('You clicked on [link]');", $allowed, $_[user]);
 			
-			function php_file_tree($directory, $return_link, $extensions = array()) {
+			function php_file_tree($directory, $return_link, $extensions = array(), $current_user) {
 				// Generates a valid XHTML list of all directories, sub-directories, and files in $directory
 				// Remove trailing slash
 				if( substr($directory, -1) == "/" ) $directory = substr($directory, 0, strlen($directory) - 1);
-				$code .= php_file_tree_dir($directory, $return_link, $extensions);
+				$code .= php_file_tree_dir($directory, $return_link, $extensions, $current_user);
 				return $code;
 			}
 
-			function php_file_tree_dir($directory, $return_link, $extensions = array(), $first_call = true) {
+			function php_file_tree_dir($directory, $return_link, $extensions = array(), $current_user, $first_call = true) {
 				// Recursive function called by php_file_tree() to list directories/files
 				
 				// Get and sort directories/files
@@ -43,14 +43,15 @@
 					$php_file_tree = "<ul";
 					if( $first_call ) { $php_file_tree .= " class=\"php-file-tree\""; $first_call = false; }
 					$php_file_tree .= ">";
+
 					foreach( $file as $this_file ) {
 						if( $this_file != "." && $this_file != ".." ) {
 							$route = $directory . "/" . $this_file;
-							$route = str_replace("./data/admin/files/", "", $route);
+							$route = str_replace("./data/" . $current_user . "/files", "", $route);
 							if( is_dir("$directory/$this_file") ) {
 								// Directory
 								$php_file_tree .= "<li class=\"pft-directory\"><i class='fa fa-folder' aria-hidden=\"true\"></i><a href=\"#\">" . htmlspecialchars($this_file) . "</a>";
-								$php_file_tree .= php_file_tree_dir("$directory/$this_file", $return_link ,$extensions, false);
+								$php_file_tree .= php_file_tree_dir("$directory/$this_file", $return_link ,$extensions, $current_user, false);
 								$php_file_tree .= "</li>";
 							} else {
 								// File
