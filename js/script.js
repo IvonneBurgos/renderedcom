@@ -65,7 +65,11 @@
 						frame_fin: $('#frame_fin').val()
 					};
 					$.post(url, data).success(function (response) {
-						$('#echo-result').text(response);
+
+							$('#echo-result').text('Status:' + response.confirmation);
+						
+						
+						
 					});
 				}
 				this.disabled = true;
@@ -82,14 +86,6 @@
 		  //	alert(ruta);
 		  $('#file_path').val(ruta);
 		})
-			
-		$('#scan').click(function(){
-			var url = OC.generateUrl('/apps/renderedcom/cp');
-			var data = {};
-			$.post(url, data).success(function (response) {
-				$('#echo-result').text(response);
-			});
-		});
 			
 		$('#closeNav').click(function() {
 			document.getElementById("mySidenav").style.width = "0";
