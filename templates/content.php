@@ -13,7 +13,7 @@
             <label class='labelPosition'>Archivo: </label>
         </div>
         <div class="col-md-6" >
-            <input id="file_path" name="file_path" class="formElements" type="text" placeholder="mi_archivo.xy">
+            <input id="file_path" name="file_path" class="formElements" type="text" placeholder="mi_archivo.xy" readonly>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-1" >
