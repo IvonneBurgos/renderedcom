@@ -76,6 +76,37 @@
 			}
 		});
 		
+		// $('#endJob').attr("class", "selectedOption");
+
+		$('#endJob').click(function () {
+			// $('#endJob').attr("class", "selectedOption");
+			// $('#processJob').attr("class", " ");
+			localStorage.setItem('id','#endJob');
+			// localStorage.setItem('class','.selectedOption');
+			// if (timer !== false){
+			// 	clearInterval(timer);
+			// 	timer = false;
+			// 	ajaxRequestDon();
+			// }
+			window.location.href = '/owncloud/index.php/apps/mistrabajos/';
+		});
+
+		$('#processJob').click(function () {
+			// $('#bigCont').empty();
+			// $('#processJob').attr("class", "selectedOption");
+			// $('#endJob').attr("class", " ");
+			localStorage.setItem('id','#processJob');
+			// localStorage.setItem('class','.selectedOption');
+   //          if (timer !== false){
+			// 	clearInterval(timer);
+			// }
+			// else
+			// {
+			// 	timer = setInterval(ajaxRequestProcess, 1000);
+			// }
+			window.location.href = '/owncloud/index.php/apps/mistrabajos/';
+		});
+
 		$('#buscar').click(function(){
 			var arrayFiles = Array();
 			$("#progress-div").show();
