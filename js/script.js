@@ -106,6 +106,7 @@
 			$('#job-nav ul').css('display', 'none');
 			$(this).hide();
 		});
+		
 		$('#openNav').click(function() {
 			document.getElementById("job-nav").style.height = "25%";
 			$('#closeNav').css('display', 'block');
