@@ -28,7 +28,7 @@
             <label class='labelPosition'>Frames desde: </label>
         </div>
         <div id="div_ini" class="col-md-3" >
-            <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="0">
+            <input id="frame_ini" name="frame_ini" class="formElements" type="text" placeholder="1">
         </div>
         <div class="col-md-2">
             <label class='labelPosition' id='label_frame_fin'>hasta: </label>

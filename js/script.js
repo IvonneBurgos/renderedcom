@@ -67,7 +67,8 @@
 					$.post(url, data).success(function (response) {
 
 							$('#echo-result').text('Status:' + response.confirmation);
-						
+						localStorage.setItem('id','#processJob');
+			window.location.href = '/owncloud/index.php/apps/mistrabajos/';
 						
 						
 					});
@@ -95,12 +96,21 @@
 
 		$('.file').click(function() {
 		  var ruta = $(this).attr('url');
-		  //	alert(ruta);
 		  $('#file_path').val(ruta);
+		  $('#progress-div').hide();
 		})
 			
 		$('#closeNav').click(function() {
-			document.getElementById("mySidenav").style.width = "0";
-		});		
+			document.getElementById("job-nav").style.height = "7%";
+			$('#openNav').css('display', 'block');
+			$('#job-nav ul').css('display', 'none');
+			$(this).hide();
+		});
+		$('#openNav').click(function() {
+			document.getElementById("job-nav").style.height = "25%";
+			$('#closeNav').css('display', 'block');
+			$('#job-nav ul').css('display', 'block');
+			$(this).hide();
+		});
 	});
 })(jQuery, OC);
