@@ -22,6 +22,6 @@ return [
         ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
         ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
         ['name' => 'job#create_job', 'url' => '/job', 'verb' => 'POST'],
-        ['name' => 'job#cp_folder', 'url' => '/cp', 'verb' => 'POST']
+        ['name' => 'job#find_folder', 'url' => '/find', 'verb' => 'POST']
     ]
 ];
