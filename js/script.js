@@ -32,21 +32,6 @@
 		}
 		return ban; 
 	}
-
-	function checkFolder(scene){
-		var url = OC.generateUrl('/apps/renderedcom/find');
-		var ban;
-
-		var data = {
-			scene: $('#scene').val()
-		};
-		$.post(url, data).success(function (response) {
-
-			ban = response;
-
-		});
-        return ban; 
-    }
 	
 	$(document).ready(function () {
 	// var ruta = $('.route');
@@ -70,10 +55,8 @@
 		$('#render').click(function(){
 			var banField = checkEmptyFields(document.getElementById('form').getElementsByTagName('input'));
 			var banNumber = checkNumberRange($('#frame_ini').val(),$('#frame_fin').val());
-			var banFolder = checkFolder($('#scene').val());
 			if (banField == true ){
 				if (banNumber == true ){
-<<<<<<< HEAD
 					var url = OC.generateUrl('/apps/renderedcom/job');
 					var data = {
 						scene: $('#scene').val(),
@@ -89,21 +72,6 @@
 						
 						
 					});
-=======
-					if (banFolder == true){
-							var url = OC.generateUrl('/apps/renderedcom/job');
-							var data = {
-							scene: $('#scene').val(),
-							file_path: $('#file_path').val(),
-							frame_ini: $('#frame_ini').val(),
-							frame_fin: $('#frame_fin').val()
-						};
-						$.post(url, data).success(function (response) {
-							$('#echo-result').text('Status: ' + response.result);
-						});
-					}
-					
->>>>>>> 7d28e2d2b5557180fc7c8fab987de9e21e901c66
 				}
 				this.disabled = true;
 			}
