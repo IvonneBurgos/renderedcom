@@ -43,24 +43,26 @@ class JobController extends Controller{
         $directory = join('/', $directory);
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
-        $varpath = $this->createFolder($scene);
-                   $data= array('user'=> $this->userId,'scene'=> $scene, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
-        $result= shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
-        return new DataResponse($result);
+
+        if (file_exists('/var/tmp/afanasy/jobs/0/'. $scene)) {
+            $result = 'ok';
+            $confirmation =  false;
+        } else {
+            $varpath = $this->createFolder($scene);
+            $data= array('user'=> $this->userId,'scene'=> $scene, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
+            $result = shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
+            $confirmation = true;
+        }
+            
+        return new DataResponse(['result' => $result, 'confirmation' => $confirmation]);
     }
     
     protected function createFolder($scene){
-       $array = ["datadir" => "Nube_Multimedia"];  
+        $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
         $varfolder= $this->userId . '/' . $scene. '/';
         $datadir->mkdir($varfolder); 
-        /* $dataUser = new Filesystem();
-        $varfolder = $dataUser->mkdir('Documents/'. $scene);*/
         $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene); 
         return $varfolder;
     }
-	public function cpFolder() {
-		$result2 = shell_exec ('cp -R /var/www/owncloud/Nube_Multimedia/admin/ewrwe /var/www/owncloud/data/admin/files/Documents');
-        return new DataResponse($result2);
-	}
-    }
+}
