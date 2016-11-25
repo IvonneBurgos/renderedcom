@@ -34,17 +34,15 @@
 	}
 
 	function checkFolder(scene){
-		var url = OC.generateUrl('/apps/renderedcom/name');
+		var url = OC.generateUrl('/apps/renderedcom/find');
+		var ban;
 
 		var data = {
-			scene: $('#scene').val(),
-			file_path: $('#file_path').val(),
-			frame_ini: $('#frame_ini').val(),
-			frame_fin: $('#frame_fin').val()
+			scene: $('#scene').val()
 		};
 		$.post(url, data).success(function (response) {
 
-			$('#echo-result').text('Status: ' + response.result);
+			ban = response;
 
 		});
         return ban; 
@@ -72,20 +70,22 @@
 		$('#render').click(function(){
 			var banField = checkEmptyFields(document.getElementById('form').getElementsByTagName('input'));
 			var banNumber = checkNumberRange($('#frame_ini').val(),$('#frame_fin').val());
+			var banFolder = checkFolder($('#scene').val());
 			if (banField == true ){
 				if (banNumber == true ){
-					var url = OC.generateUrl('/apps/renderedcom/job');
-					var data = {
-						scene: $('#scene').val(),
-						file_path: $('#file_path').val(),
-						frame_ini: $('#frame_ini').val(),
-						frame_fin: $('#frame_fin').val()
-					};
-					$.post(url, data).success(function (response) {
-
+					if (banFolder == true){
+							var url = OC.generateUrl('/apps/renderedcom/job');
+							var data = {
+							scene: $('#scene').val(),
+							file_path: $('#file_path').val(),
+							frame_ini: $('#frame_ini').val(),
+							frame_fin: $('#frame_fin').val()
+						};
+						$.post(url, data).success(function (response) {
 							$('#echo-result').text('Status: ' + response.result);
-						
-					});
+						});
+					}
+					
 				}
 				this.disabled = true;
 			}

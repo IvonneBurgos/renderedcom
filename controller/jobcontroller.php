@@ -44,15 +44,15 @@ class JobController extends Controller{
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
 
-        if (file_exists('/var/tmp/afanasy/jobs/0/'. $scene)) {
+       /* if (file_exists('/var/tmp/afanasy/jobs/0/'. $scene)) {
             $result = 'ok';
             $confirmation =  false;
-        } else {
+        } else {*/
             $varpath = $this->createFolder($scene);
             $data= array('user'=> $this->userId,'scene'=> $scene, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
             $result = shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
             $confirmation = true;
-        }
+        //}
             
         return new DataResponse(['result' => $result, 'confirmation' => $confirmation]);
     }
@@ -60,25 +60,31 @@ class JobController extends Controller{
     protected function createFolder($scene){
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
-        $varfolder= $this->userId . '/' . $scene. '/';
+        $varfolder= $this->userId . '/' . $this->userId ."_". $scene. '/';
         $datadir->mkdir($varfolder); 
-        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene); 
+        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $this->userId . "_" . $scene); 
         return $varfolder;
     }
 
    public function findFolder($scene){
+        $ban= false;
 
         $id = $scene;
-            $handler = opendir(__DIR__ . '\var\tmp\afanasy\0');
+        $handler = opendir(__DIR__ . '\var\tmp\afanasy\0');
         while ($file = readdir($handler))
         {
-            if ($file !== "." && $file !== "..")
-            {
-                preg_match("/^({$id}-.*.txt)/i" , $file, $name);
-                echo isset($name[0]) ? $name[0] . "\n\n" : '';
-            }
+         if ($file !== "." && $file !== "..")
+        {
+         preg_match("/({$scene})/i" , $file, $name);
+        //echo isset($name[0]) ? $name[0] . "\n\n" : '';
         }
-        closedir($handler);
+        }
+        if (count($name) > 0){
+         $ban = true;
+        }
+         closedir($handler);
+
+        return new DataResponse ($ban);
 
     }
 
