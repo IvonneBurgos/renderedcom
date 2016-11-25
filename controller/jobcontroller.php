@@ -65,4 +65,21 @@ class JobController extends Controller{
         $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene); 
         return $varfolder;
     }
+
+   public function findFolder($scene){
+
+        $id = $scene;
+            $handler = opendir(__DIR__ . '\var\tmp\afanasy\0');
+        while ($file = readdir($handler))
+        {
+            if ($file !== "." && $file !== "..")
+            {
+                preg_match("/^({$id}-.*.txt)/i" , $file, $name);
+                echo isset($name[0]) ? $name[0] . "\n\n" : '';
+            }
+        }
+        closedir($handler);
+
+    }
+
 }

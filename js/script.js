@@ -32,6 +32,23 @@
 		}
 		return ban; 
 	}
+
+	function checkFolder(scene){
+		var url = OC.generateUrl('/apps/renderedcom/name');
+
+		var data = {
+			scene: $('#scene').val(),
+			file_path: $('#file_path').val(),
+			frame_ini: $('#frame_ini').val(),
+			frame_fin: $('#frame_fin').val()
+		};
+		$.post(url, data).success(function (response) {
+
+			$('#echo-result').text('Status: ' + response.result);
+
+		});
+        return ban; 
+    }
 	
 	$(document).ready(function () {
 	// var ruta = $('.route');
@@ -66,9 +83,7 @@
 					};
 					$.post(url, data).success(function (response) {
 
-							$('#echo-result').text('Status:' + response.confirmation);
-						
-						
+							$('#echo-result').text('Status: ' + response.result);
 						
 					});
 				}
