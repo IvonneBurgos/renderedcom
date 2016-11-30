@@ -113,5 +113,16 @@
 			$('#job-nav ul').css('display', 'block');
 			$(this).hide();
 		});
+
+		$( window ).resize(function() {
+			if($(window).width() <= 770) {
+				$( ".jobnav-top" ).show();
+				$("#job-nav").height("7%");
+			} else {
+				$( "#job-nav ul" ).show();
+				$( ".jobnav-top" ).hide();
+				$("#job-nav").height("100%");
+			}
+		});
 	});
 })(jQuery, OC);

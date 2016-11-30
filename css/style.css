@@ -41,59 +41,63 @@ thead th{
 	color: #f1f1f1 !important;
 }
 .body-head h3, .body-head span {
-  display: inline-block;
+	display: inline-block;
 }
 .body-head span {
-  float: right;
-  margin: 30px 0 0 40px;
+	float: right;
+  	margin: 30px 0 0 40px;
 }
 .row-info {
-  margin-bottom: 10px;
+  	margin-bottom: 10px;
 }
 .info-label, .info-text {
-  display: inline-block;
-  margin: 0;
+  	display: inline-block;
+  	margin: 0;
 }
 .paging-nav {
-  text-align: right;
-  padding-top: 2px;
+  	text-align: right;
+  	padding-top: 2px;
 }
 .paging-nav a {
-  margin: auto 1px;
-  text-decoration: none;
-  display: inline-block;
-  padding: 1px 7px;
-  background: #818181;
-  color: white;
-  border-radius: 3px;
+	margin: auto 1px;
+	text-decoration: none;
+	display: inline-block;
+	padding: 1px 7px;
+  	background: #818181;
+  	color: white;
+  	border-radius: 3px;
 }
 .paging-nav .selected-page {
-  background: #1d2d44;
-  font-weight: bold;
+	background: #1d2d44;
+	font-weight: bold;
 }
 .progress-bar {
-  background-color: #5cb85c !important ;
+  	background-color: #5cb85c !important ;
 }
 .fa-arrow-circle-down{
-  color: #5cb85c !important ;
+  	color: #5cb85c !important ;
 }
 .fa-arrow-circle-down:hover{
-  color: #005400 !important ;
+  	color: #005400 !important ;
 }
 #userNameFront{
-  text-align: center;
-  width: 100%;
-  background-color: #818181;
-  margin-bottom: 0;
+	text-align: center;
+	width: 100%;
+	background-color: #818181;
+	margin-bottom: 0;
 }
 #job-nav{
-  padding-right: 0;
-  padding-top: 0;
-  color: #f1f1f1;
-  font-size: 20px;
+	height: 100%;
+	padding-right: 0;
+	padding-top: 0;
+	color: #f1f1f1;
+	font-size: 20px;
 }
 #processjobmessage, #endjobmessage{
   margin-top: 2%;
+}
+.jobnav-top {
+	display: none;
 }
 
 @media (max-width: 770px) {
@@ -131,6 +135,9 @@ thead th{
 	}
 	#userNameFront {
 		display: none;
+	}
+	.jobnav-top {
+		display: block;
 	}
 	.jobnav-top a {
 		text-align: right;
@@ -204,44 +211,9 @@ thead th{
 .sidenav {
 	background-color: #1d2d44;
 	color: white;
-	/*height: 100%;
-	width: 30%;
-	position: fixed;
-	z-index: 1;
-	right: 0;
-	float: right;
-	overflow-x: hidden;
-	transition: 0.5s;
-	display: flex;
-	flex-direction: column;*/
+	/*transition: 0.5s;*/
 	padding-top: 10px;
 }
-/*.sidenav-top {
-	display: flex;
-	flex-direction: row;
-	align-items: baseline;
-	margin: 0 10px;
-}
-.sidenav-top h2 {
-	width: 100%;
-}
-.closebtn {
-	font-size: 36px !important;
-}
-.sidenav-top h2, .sidenav-top a {
-	margin: 0;
-	padding: 0;
-}
-.sidenav a:hover, .offcanvas a:focus{
-	color: #f1f1f1;
-	text-decoration: none;
-}
-.lower {
-   text-transform: lowercase;
-}
-#filesDisplay {
-	padding: 10px 20px;
-}*/
 .render-form {
 	margin: auto;
 	height: 100%;
