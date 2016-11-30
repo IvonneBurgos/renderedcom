@@ -39,6 +39,7 @@ class JobController extends Controller{
 	 * @NoCSRFRequired
 	 */
 	public function createJob($scene,$file_path,$frame_ini,$frame_fin){
+        $date = time(); 
         $directory = explode('/', $file_path, -1);
         $directory = join('/', $directory);
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
@@ -48,8 +49,8 @@ class JobController extends Controller{
             $result = 'ok';
             $confirmation =  false;
         } else {*/
-            $varpath = $this->createFolder($scene);
-            $data= array('user'=> $this->userId,'scene'=> $scene, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
+            $varpath = $this->createFolder($scene,$date);
+            $data = array('user'=> $this->userId,'scene'=> $scene."_".$date, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
             $result = shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
             $confirmation = true;
         //}
@@ -57,12 +58,13 @@ class JobController extends Controller{
         return new DataResponse(['result' => $result, 'confirmation' => $confirmation]);
     }
     
-    protected function createFolder($scene){
+    protected function createFolder($scene,$date){
+        
         $array = ["datadir" => "Nube_Multimedia"];  
         $datadir = new Local($array);
-        $varfolder= $this->userId . '/' . $this->userId ."_". $scene. '/';
+        $varfolder= $this->userId . '/' . $scene . "_". $date.'/';
         $datadir->mkdir($varfolder); 
-        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $this->userId . "_" . $scene); 
+        $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene . "_" . $date); 
         return $varfolder;
     }
 
