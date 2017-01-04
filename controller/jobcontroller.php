@@ -44,16 +44,12 @@ class JobController extends Controller{
         $directory = join('/', $directory);
         $frame_inicio = (int) preg_replace('/[^0-9]/', '', $frame_ini);
         $frame_final = (int) preg_replace('/[^0-9]/', '', $frame_fin);
-
-       /* if (file_exists('/var/tmp/afanasy/jobs/0/'. $scene)) {
-            $result = 'ok';
-            $confirmation =  false;
-        } else {*/
+        
             $varpath = $this->createFolder($scene,$date);
             $data = array('user'=> $this->userId,'scene'=> $scene."_".$date, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
-            $result = shell_exec('sh /opt/cgru/setup3.sh; python "/opt/cgru/afanasy/python/job6.py" ' . escapeshellarg(json_encode($data)));
+            $result = shell_exec('sh /opt/cgru/setup_render.sh; python "/opt/cgru/afanasy/python/blenderjob.py" ' . escapeshellarg(json_encode($data)));
             $confirmation = true;
-        //}
+        
             
         return new DataResponse(['result' => $result, 'confirmation' => $confirmation]);
     }
