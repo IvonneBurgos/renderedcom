@@ -38,6 +38,9 @@ class JobController extends Controller{
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
+
+    // Recibe el nombre de la escena, el path del archivo, el rango de frames y se envía al servidor de Afanasy
+
 	public function createJob($scene,$file_path,$frame_ini,$frame_fin){
         $date = time(); 
         $directory = explode('/', $file_path, -1);
@@ -47,13 +50,15 @@ class JobController extends Controller{
         
             $varpath = $this->createFolder($scene,$date);
             $data = array('user'=> $this->userId,'scene'=> $scene."_".$date, 'directory'=>$directory, 'file_path'=>$file_path,'frame_ini'=> $frame_inicio,'frame_fin'=> $frame_final, 'pathSave'=> $varpath);
-            $result = shell_exec('sh /opt/cgru/setup_render.sh; python "/opt/cgru/afanasy/python/blenderjob.py" ' . escapeshellarg(json_encode($data)));
+            $result = shell_exec('sh /opt/cgru/setuprender.sh; python "/opt/cgru/afanasy/python/blenderjob.py" ' . escapeshellarg(json_encode($data)));
             $confirmation = true;
         
             
         return new DataResponse(['result' => $result, 'confirmation' => $confirmation]);
     }
     
+    //Crea una carpeta en el repositorio de Owncloud con el nombre de la escena y la fecha actual.
+
     protected function createFolder($scene,$date){
         
         $array = ["datadir" => "Nube_Multimedia"];  
@@ -62,28 +67,6 @@ class JobController extends Controller{
         $datadir->mkdir($varfolder); 
         $result= shell_exec('chmod 777 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene . "_" . $date); 
         return $varfolder;
-    }
-
-   public function findFolder($scene){
-        $ban= false;
-
-        $id = $scene;
-        $handler = opendir(__DIR__ . '\var\tmp\afanasy\0');
-        while ($file = readdir($handler))
-        {
-         if ($file !== "." && $file !== "..")
-        {
-         preg_match("/({$scene})/i" , $file, $name);
-        //echo isset($name[0]) ? $name[0] . "\n\n" : '';
-        }
-        }
-        if (count($name) > 0){
-         $ban = true;
-        }
-         closedir($handler);
-
-        return new DataResponse ($ban);
-
     }
 
 }

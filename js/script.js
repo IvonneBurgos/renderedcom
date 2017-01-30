@@ -5,7 +5,8 @@
  * later. See the COPYING file.
  *
  * @author IvonneBurgos <irburgos@espol.edu.ec>
- * @copyright IvonneBurgos 2016
+ * @author RonnyValdivieso <ron_251@hotmail.com>
+ * @copyright IvonneBurgos & RonnyValdivieso 2016
  */
 
 (function ($, OC) {
@@ -76,8 +77,6 @@
 				this.disabled = true;
 			}
 		});
-		
-		// $('#endJob').attr("class", "selectedOption");
 
 		$('#endJob').click(function () {
 			localStorage.setItem('id','#endJob');
