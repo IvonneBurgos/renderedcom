@@ -65,7 +65,7 @@ class JobController extends Controller{
         $datadir = new Local($array);
         $varfolder= $this->userId . '/' . $scene . "_". $date.'/';
         $datadir->mkdir($varfolder); 
-        $result= shell_exec('chmod 770 -R /var/www/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene . "_" . $date); 
+        $result= shell_exec('chmod 770 -R /var/www/html/owncloud/Nube_Multimedia/'. $this->userId .'/' . $scene . "_" . $date); 
         return $varfolder;
     }
 
