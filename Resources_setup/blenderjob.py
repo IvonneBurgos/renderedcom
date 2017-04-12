@@ -26,13 +26,13 @@ job.setMaxRunningTasks( 5)
 block = af.Block('blenderRender', 'blender')
 
 # Set block tasks working directory
-block.setWorkingDirectory('/var/www/owncloud/data/'+data["user"]+ '/files'+data["directory"] + '/')
+block.setWorkingDirectory('/var/www/html/owncloud/data/'+data["user"]+ '/files'+data["directory"] + '/')
 
 # Set block tasks command
-block.setCommand('blender -b \"/var/www/owncloud/data/'+ data["user"]+'/files/'+data["file_path"]+'\" -o \"/var/www/owncloud/Nube_Multimedia/'+data["pathSave"]+'/img\" -s @#@ -e @#@ -j 1 -a')
+block.setCommand('blender -b \"/var/www/html/owncloud/data/'+ data["user"]+'/files/'+data["file_path"]+'\" -o \"/var/www/html/owncloud/Nube_Multimedia/'+data["pathSave"]+'/img\" -s @#@ -e @#@ -j 1 -a')
 
 # Set block tasks preview command arguments
-block.setFiles(["/var/www/owncloud/Nube_Multimedia/"+data['pathSave']+"img"])
+block.setFiles(["/var/www/html/owncloud/html/Nube_Multimedia/"+data['pathSave']+"img"])
 
 # Set block to numeric type, providing first, last frame and frames per host
 block.setNumeric( data["frame_ini"], data["frame_fin"], 1)
