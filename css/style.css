@@ -1,24 +1,33 @@
 .sidenav-left {
-	height: 100%;
-	position: relative;
-	top: 0;
-	left: 0;
-	float: left;
-	background-color: #1d2d44;
+	background-color: #340A68;
 	padding-top: 2%;
-	width: 
-}
-.sidenav-left ul {
-
+	width: 250px;
+	position: fixed;
 }
 .sidenav-left a {
 	text-align: center;
-	padding-top: 10%;
+	padding: 10px;
 	text-decoration: none;
 	font-size: 16px;
 	display: block;
-	color: #818181;
+	color: #bbb;
 	transition: 0.3s
+}
+.sidenav-left a:not(.selectedOption):hover {
+	color: #fff;
+}
+.user-image {
+	border-radius: 50%;
+	/*background-color: #f8f8f8;*/
+	width: 100px;
+	height: 100px;
+	margin: 15px auto 5px auto;
+	display: flex;
+}
+.user-image .fa {
+	margin: auto;
+	color: #fdfdfd;
+	font-size: 100px;
 }
 #tbodyid tr {
 	word-break: break-all;
@@ -36,9 +45,11 @@ thead th{
 #app-content-wrapper {
 	padding-left: 0;
 	height: 100%;
+	background-color: #f8f8f8;
+	display: flex;
 }
 .selectedOption {
-	color: #f1f1f1 !important;
+	color: #fff !important;
 }
 .body-head h3, .body-head span {
 	display: inline-block;
@@ -63,9 +74,9 @@ thead th{
 	text-decoration: none;
 	display: inline-block;
 	padding: 1px 7px;
-  	background: #818181;
-  	color: white;
-  	border-radius: 3px;
+	background: #818181;
+	color: white;
+	border-radius: 3px;
 }
 .paging-nav .selected-page {
 	background: #1d2d44;
@@ -83,7 +94,6 @@ thead th{
 #userNameFront{
 	text-align: center;
 	width: 100%;
-	background-color: #818181;
 	margin-bottom: 0;
 }
 #job-nav{
@@ -100,13 +110,31 @@ thead th{
 	display: none;
 }
 
+@media (min-width: 992px) {
+	#div_ini{
+		padding-right: 5%;
+	}
+}
+
 @media (max-width: 770px) {
 	.sidenav-left {
 		height: 15%;
 	}
 	.sidenav-left a {
-	  /*padding: 0 20% 10% 20% ;*/
+	  padding-right: 21px;
 		padding-top: 2%;
+	}
+	.user-image {
+		display: none;
+	}
+	.render-form {
+		padding-left: 0 !important;
+	}
+	#form {
+		width: 100% !important;
+		border: none !important;
+		box-shadow: none !important;
+		margin: 30px auto auto auto !important;
 	}
 	#app{
 		width: 100%;
@@ -115,20 +143,19 @@ thead th{
 	#app-content{
 		width: 100%;
 		margin: 0;
-		padding-right: 0; 
+		padding-right: 0;
 	}
 	#app-content-wrapper{
-	  width: 100%;
-	  margin: 0;
-	  padding-right: 0;
-
+		width: 100%;
+		margin: 0;
+		padding-right: 0;
 	}
 	#job-nav {
 		height: 7%;
 		margin-bottom: 10px;
 		position: fixed;
-		margin-top: 45px;
 		z-index: 1;
+		width: 100%;
 	}
 	#job-nav ul {
 		display: none;
@@ -165,12 +192,20 @@ thead th{
 	margin: 0;
 }
 #form {
-	padding-top: 40px;
+	background-color: #fff;
 	padding-left: 5%;
 	padding-right: 5%;
+	padding-bottom: 20px;
+	width: 480px;
+	margin: 100px auto auto auto;
+	border-radius: 10px;
+	box-shadow: 0px 1px 2px #c5c5c5;
 }
 #form > div {
 	padding-top: 10px;
+}
+#form input {
+	border: 1px solid #5965B1;
 }
 .formElements{
 	width: 100% !important;
@@ -192,31 +227,36 @@ thead th{
 .labelPosition{
 	margin-top: 5% !important;
 }
-#label_frame_fin{
-	padding-left: 40% !important;
-}
 #render{
 	width: 100%;
 }
 .progress {
 	display: none;
-	margin-left: 16.7%;
 	margin-top: 20px !important;
-	height: 200px;
-	background-color: #1d2d44;
+	height: 150px;
+	background-color: #ffff;
 	overflow-y: scroll;
+	border: 1px solid #5965B1;
 }
 
 /* ---- sidenav ---- */
 .sidenav {
-	background-color: #1d2d44;
-	color: white;
+	background-color: #ffff;
+	color: #5965B1;
 	/*transition: 0.5s;*/
 	padding-top: 10px;
 }
 .render-form {
-	margin: auto;
 	height: 100%;
+	padding-left: 250px;
+	width: 100%;
+}
+#buscar {
+	background-color: #601BB7;
+}
+#render {
+	background-color: #FF8500;
+	border: none;
 }
 
 /* ---- sidenav (END) ---- */
@@ -266,5 +306,10 @@ thead th{
 .php-file-tree i {
 	padding-right: 10px;
 }
-
+.pft-directory a, .pft-file a {
+	color: #340A68;
+}
+.pft-file i {
+	color: #FF8500;
+}
 /* ---- File tree (END) ---- */
