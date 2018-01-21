@@ -1,5 +1,5 @@
 .sidenav-left {
-	background-color: #340A68;
+	background-color: #222E6A;
 	padding-top: 2%;
 	width: 250px;
 	position: fixed;
@@ -95,6 +95,7 @@ thead th{
 	text-align: center;
 	width: 100%;
 	margin-bottom: 0;
+	padding-top: 5px;
 }
 #job-nav{
 	height: 100%;
@@ -193,9 +194,7 @@ thead th{
 }
 #form {
 	background-color: #fff;
-	padding-left: 5%;
-	padding-right: 5%;
-	padding-bottom: 20px;
+	padding: 20px 5%;
 	width: 480px;
 	margin: 100px auto auto auto;
 	border-radius: 10px;
@@ -224,9 +223,6 @@ thead th{
 .row div {
 	padding: auto 10px;
 }
-.labelPosition{
-	margin-top: 5% !important;
-}
 #render{
 	width: 100%;
 }
@@ -241,7 +237,7 @@ thead th{
 
 /* ---- sidenav ---- */
 .sidenav {
-	background-color: #ffff;
+	background-color: #fff;
 	color: #5965B1;
 	/*transition: 0.5s;*/
 	padding-top: 10px;
@@ -252,10 +248,10 @@ thead th{
 	width: 100%;
 }
 #buscar {
-	background-color: #601BB7;
+	background-color: #5965B1;
 }
 #render {
-	background-color: #FF8500;
+	background-color: #FF8400;
 	border: none;
 }
 
@@ -307,9 +303,9 @@ thead th{
 	padding-right: 10px;
 }
 .pft-directory a, .pft-file a {
-	color: #340A68;
+	color: #222E6A;
 }
 .pft-file i {
-	color: #FF8500;
+	color: #FF8400;
 }
 /* ---- File tree (END) ---- */
