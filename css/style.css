@@ -152,7 +152,7 @@ thead th{
 		padding-right: 0;
 	}
 	#job-nav {
-		height: 7%;
+		height: 45px;
 		margin-bottom: 10px;
 		position: fixed;
 		z-index: 1;
@@ -269,8 +269,8 @@ thead th{
 	color: #000000;
 	text-decoration: none;
 }
-.php-file-tree A:hover {
-	color: #666666;
+.php-file-tree a:hover {
+	color: #222E6A;
 }
 .php-file-tree .open {
 	font-style: italic;
@@ -297,13 +297,13 @@ thead th{
 	width: 100%;
 }
 .php-file-tree a:focus {
-	color: #fff;
+	color: #222E6A;
 }
 .php-file-tree i {
 	padding-right: 10px;
 }
 .pft-directory a, .pft-file a {
-	color: #222E6A;
+	color: #333;
 }
 .pft-file i {
 	color: #FF8400;
