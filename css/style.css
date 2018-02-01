@@ -35,6 +35,9 @@
 #tbodyid tr:hover{
 	background-color:rgba(0, 0, 0, 0.05) !important;
 }
+#job-nav ul {
+	margin-top: 15px !important;
+}
 thead th{
 	margin-bottom: 2%;
 	padding-top:2%;
